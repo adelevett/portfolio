@@ -7,6 +7,7 @@ section_id: fall-2025
 slug: drc-student-workshop-oct-28
 
 permalink: /fall-2025/drc-student-workshop-oct-28/
+pdf_src: /assets/pdfs/Otter_Power_Ups.pdf
 ---
 
 # DRC Student Workshop – October 28

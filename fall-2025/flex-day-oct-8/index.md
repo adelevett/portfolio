@@ -7,6 +7,7 @@ section_id: fall-2025
 slug: flex-day-oct-8
 
 permalink: /fall-2025/flex-day-oct-8/
+pdf_src: /assets/pdfs/faculty_drc_workshop_slides.pdf
 ---
 
 # Flex Day – October 8

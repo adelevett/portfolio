@@ -7,6 +7,7 @@ section_id: spring-2025
 slug: pep-contribution-march-18
 
 permalink: /spring-2025/pep-contribution-march-18/
+pdf_src: /assets/pdfs/PEP_2025_AT.pdf
 ---
 
 # PEP contribution – March 18
