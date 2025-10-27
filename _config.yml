@@ -1,0 +1,15 @@
+
+Title: OneNote-Style Notebook
+url: ""
+baseurl: ""
+permalink: pretty
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+plugins:
+  - jekyll-seo-tag
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules

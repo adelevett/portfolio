@@ -1,0 +1,25 @@
+- id: overview
+  title: Overview
+  pages:
+    - slug: introduction
+      title: Introduction
+- id: spring-2025
+  title: Spring 2025
+  pages:
+    - slug: pep-contribution-march-18
+      title: PEP contribution – March 18
+- id: fall-2025
+  title: Fall 2025
+  pages:
+    - slug: classroom-demo-aug-25
+      title: Classroom Demo – August 25
+    - slug: flex-day-oct-8
+      title: Flex Day – October 8
+    - slug: caped-presentation-oct-14
+      title: CAPED Presentation – October 14
+    - slug: drc-student-workshop-oct-28
+      title: DRC Student Workshop – October 28
+    - slug: meeting-notes-templates-ongoing
+      title: Meeting Notes Templates – Ongoing
+    - slug: otter-ai-feedback-end-of-term
+      title: Otter AI Feedback Form – End of Term
