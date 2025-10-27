@@ -54,6 +54,18 @@
 
     <main class="content" role="tabpanel" aria-label="Content">
       {{ content }}
+
+      {%- comment -%}
+      Render an embedded PDF if the page has a `pdf_src` front-matter value.
+      This ensures PDFs appear even if an include in the markdown wasn't processed for
+      any reason during the build.
+      {%- endcomment -%}
+      {% if page.pdf_src %}
+        <section class="pdf-container">
+          <h2>Attached PDF</h2>
+          {% include pdf.html src=page.pdf_src title=page.title %}
+        </section>
+      {% endif %}
     </main>
   </div>
 </body>
