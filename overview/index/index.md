@@ -6,7 +6,7 @@ section_id: overview
 
 slug: index
 
-permalink: /overview/index/
+permalink: /overview/
 ---
 
 # Overview

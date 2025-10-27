@@ -6,7 +6,7 @@ section_id: fall-2025
 
 slug: index
 
-permalink: /fall-2025/index/
+permalink: /fall-2025/
 ---
 
 # Fall 2025

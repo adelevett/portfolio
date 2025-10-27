@@ -38,7 +38,11 @@
         {% for s in site.data.sections %}
           {% if s.id == current_section %}
             {% for p in s.pages %}
-              {% assign href = '/' | append: s.id | append: '/' | append: p.slug | append: '/' %}
+              {% if p.slug == 'index' or p.slug == '' %}
+                {% assign href = '/' | append: s.id | append: '/' %}
+              {% else %}
+                {% assign href = '/' | append: s.id | append: '/' | append: p.slug | append: '/' %}
+              {% endif %}
               <li>
                 <a role="tab" aria-selected="{% if page.slug == p.slug %}true{% else %}false{% endif %}" href="{{ href | relative_url }}" class="{% if page.slug == p.slug %}active{% endif %}">{{ p.title }}</a>
               </li>
