@@ -37,8 +37,20 @@ jobs:
       - name: Build the site with Jekyll
         run: bundle exec jekyll build --trace -d ./_site
 
+      - name: Inspect generated site
+        run: |
+          echo "--- _site listing ---"
+          ls -laR _site || true
+          echo "--- head of _site/index.html (if present) ---"
+          if [ -f _site/index.html ]; then sed -n '1,120p' _site/index.html || true; else echo "_site/index.html not found"; fi
+
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
+          publish_branch: gh-pages
+          commit_message: "Deploy site from Actions"
+          user_name: "github-actions[bot]"
+          user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          allow_empty_commit: true
