@@ -43,6 +43,16 @@ jobs:
           ls -laR _site || true
           echo "--- head of _site/index.html (if present) ---"
           if [ -f _site/index.html ]; then sed -n '1,120p' _site/index.html || true; else echo "_site/index.html not found"; fi
+          echo "--- head of caped presentation page ---"
+          if [ -f _site/fall-2025/caped-presentation-oct-14/index.html ]; then sed -n '1,120p' _site/fall-2025/caped-presentation-oct-14/index.html || true; else echo "not found: caped presentation"; fi
+          echo "--- head of otter feedback page ---"
+          if [ -f _site/fall-2025/otter-ai-feedback-end-of-term/index.html ]; then sed -n '1,120p' _site/fall-2025/otter-ai-feedback-end-of-term/index.html || true; else echo "not found: otter feedback"; fi
+          echo "--- head of pep contribution page ---"
+          if [ -f _site/spring-2025/pep-contribution-march-18/index.html ]; then sed -n '1,120p' _site/spring-2025/pep-contribution-march-18/index.html || true; else echo "not found: pep contribution"; fi
+          echo "--- head of drc workshop page ---"
+          if [ -f _site/fall-2025/drc-student-workshop-oct-28/index.html ]; then sed -n '1,120p' _site/fall-2025/drc-student-workshop-oct-28/index.html || true; else echo "not found: drc workshop"; fi
+          echo "--- head of overview introduction page ---"
+          if [ -f _site/overview/introduction/index.html ]; then sed -n '1,120p' _site/overview/introduction/index.html || true; else echo "not found: overview introduction"; fi
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v3
