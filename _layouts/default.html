@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ page.title }} | {{ site.Title }}</title>
+  <title>{{ page.title }} | {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}" />
   {%- seo -%}
 </head>
 <body>
   <div class="header">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="#6b3fa0" aria-hidden="true"><path d="M4 4h16v16H4z" opacity=".1"/><path d="M7 6h10v2H7zm0 4h10v2H7zm0 4h7v2H7z" fill="#6b3fa0"/></svg>
-    <h1>{{ site.Title }}</h1>
+    <h1>{{ site.title }}</h1>
     <span class="badge">GitHub Pages</span>
   </div>
   <div class="shell">
@@ -20,7 +20,10 @@
       <ul class="nav">
         {% assign current_section = page.section_id %}
         {% for s in site.data.sections %}
-          {% assign active = s.id == current_section %}
+          {% assign active = false %}
+          {% if s.id == current_section %}
+            {% assign active = true %}
+          {% endif %}
           <li>
             <a role="tab" aria-selected="{% if active %}true{% else %}false{% endif %}" href="{{ '/' | append: s.id | append: '/' | relative_url }}" class="{% if active %}active{% endif %}">{{ s.title }}</a>
           </li>
