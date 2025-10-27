@@ -4,8 +4,7 @@ Usage:
   {% include pdf.html src='/assets/pdfs/file.pdf' title='My PDF' %}
 {%- endcomment -%}
 <div class="pdf-embed" role="region" aria-label="{{ include.title | default: 'Embedded PDF' }}">
-  <object data="{{ include.src | relative_url }}" type="application/pdf" aria-label="{{ include.title | default: 'PDF document' }}">
-    <iframe src="{{ include.src | append: '#toolbar=0' | relative_url }}" title="{{ include.title | default: 'PDF document' }}"></iframe>
-    <p class="note">Your browser may not support inline PDFs. <a href="{{ include.src | relative_url }}">Download the PDF</a>.</p>
-  </object>
+  <!-- Use an iframe as the primary embed for broader browser support; keep a download fallback. -->
+  <iframe src="{{ include.src | relative_url }}#toolbar=0" title="{{ include.title | default: 'PDF document' }}" aria-label="{{ include.title | default: 'PDF document' }}"></iframe>
+  <p class="note">If the PDF does not display inline, <a href="{{ include.src | relative_url }}">download the PDF</a>.</p>
 </div>
