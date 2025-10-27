@@ -10,6 +10,4 @@ kramdown:
 plugins:
   - jekyll-seo-tag
 exclude:
-  - Gemfile
-  - Gemfile.lock
   - node_modules
