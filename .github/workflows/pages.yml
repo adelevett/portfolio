@@ -5,6 +5,12 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+# Grant explicit permissions required for pushing and Pages deployment.
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,6 +18,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # ensure we have the full history (some pushes require it) and
+          # that credentials are available to push back to the repo
+          fetch-depth: 0
+          persist-credentials: true
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
