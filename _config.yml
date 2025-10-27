@@ -1,7 +1,7 @@
 
-Title: OneNote-Style Notebook
-url: ""
-baseurl: ""
+title: OneNote-Style Notebook
+url: "https://adelevett.github.io"
+baseurl: "/portfolio"
 permalink: pretty
 markdown: kramdown
 kramdown:
