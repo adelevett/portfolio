@@ -33,26 +33,82 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # For every slides.typ found, run typst query + compile
+      # For every slides.typ found, run typst query + compile + rasterise featured slides
       - name: Process engagements
         run: |
+          sudo apt-get install -y poppler-utils jq
+
           find . -name "slides.typ" \
             -not -path "./node_modules/*" \
             -not -path "./_site/*" | while read typfile; do
               dir=$(dirname "$typfile")
               echo "Processing $typfile"
 
-              # Extract metadata to engagement.json
+              # 1. Extract engagement metadata
               typst query "$typfile" "<engagement>" --field value \
                 | python3 -c "import sys,json; d=json.load(sys.stdin); print(json.dumps(d[0], indent=2))" \
-                > "$dir/engagement.json" \
-                && echo "  ✓ engagement.json written" \
-                || echo "  ✗ query failed for $typfile"
+                > "$dir/engagement-meta.json" \
+                && echo "  ✓ engagement-meta.json" \
+                || { echo "  ✗ metadata query failed"; continue; }
 
-              # Compile PDF (continue on failure — fonts may be missing in CI)
+              # 2. Extract featured slides — without --field so we get location.page too
+              typst query "$typfile" "<featured-slide>" \
+                | python3 -c "
+          import sys, json
+          items = json.load(sys.stdin)
+          slides = []
+          for item in items:
+              slides.append({
+                  'page': item['location']['page'],
+                  'note': item['value']['note']
+              })
+          print(json.dumps(slides, indent=2))
+          " > "$dir/featured-slides.json" \
+                && echo "  ✓ featured-slides.json ($(jq length $dir/featured-slides.json) slides)" \
+                || echo "  ✗ featured slides query failed"
+
+              # 3. Compile full PDF
               typst compile "$typfile" "$dir/slides.pdf" \
                 && echo "  ✓ slides.pdf compiled" \
-                || echo "  ✗ compile failed (assets/fonts may be missing in CI)"
+                || echo "  ✗ compile failed (assets may be missing in CI)"
+
+              # 4. Rasterise each featured page to PNG
+              mkdir -p "$dir/slides"
+              if [ -f "$dir/slides.pdf" ] && [ -f "$dir/featured-slides.json" ]; then
+                jq -r '.[].page' "$dir/featured-slides.json" | while read page; do
+                  pdftoppm -r 150 -png -f "$page" -l "$page" \
+                    "$dir/slides.pdf" "$dir/slides/page" \
+                    && echo "  ✓ rasterised page $page" \
+                    || echo "  ✗ rasterise failed for page $page"
+                done
+              fi
+
+              # 5. Merge metadata + featured slides into engagement.json
+              python3 -c "
+          import json, os, glob
+
+          with open('$dir/engagement-meta.json') as f:
+              meta = json.load(f)
+
+          slides_path = '$dir/featured-slides.json'
+          if os.path.exists(slides_path):
+              with open(slides_path) as f:
+                  featured = json.load(f)
+              # Add the image path each slide will be served from
+              for s in featured:
+                  p = str(s['page']).zfill(2)  # pdftoppm zero-pads
+                  # pdftoppm names: page-01.png, page-02.png etc
+                  candidates = glob.glob('$dir/slides/page-' + p + '.png') + \
+                               glob.glob('$dir/slides/page-0' + str(s['page']) + '.png')
+                  s['image'] = 'slides/' + os.path.basename(candidates[0]) if candidates else None
+              meta['featured_slides'] = featured
+          else:
+              meta['featured_slides'] = []
+
+          with open('$dir/engagement.json', 'w') as f:
+              json.dump(meta, f, indent=2)
+          print('  ✓ engagement.json merged')
+          "
           done
 
       - name: Build site
