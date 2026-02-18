@@ -11,11 +11,11 @@
 // ── Helper: annotate a slide as featured with an explanatory note ──
 // Place #feature[] at the END of a #slide[] block.
 // typst query extracts the note and embeds the page number in the value.
-#let feature(note) = context metadata((
+#let feature(note) = context [metadata((
   type: "featured-slide",
   note: note,
   page: here().page,
-)) <featured-slide>
+)) <featured-slide>]
 
 // ── Engagement metadata ────────────────────────────────────────────
 #metadata((

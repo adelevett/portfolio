@@ -51,14 +51,14 @@ jobs:
                 && echo "  ✓ engagement-meta.json" \
                 || { echo "  ✗ metadata query failed"; continue; }
 
-              # 2. Extract featured slides — request the value object so page is embedded
+              # 2. Extract featured slides — --field value, page is inside the value now
               typst query "$typfile" "<featured-slide>" --field value \
                 | python3 -c "
-import sys, json
-items = json.load(sys.stdin)
-slides = [{'page': item['page'], 'note': item['note']} for item in items]
-print(json.dumps(slides, indent=2))
-" > "$dir/featured-slides.json" \
+          import sys, json
+          items = json.load(sys.stdin)
+          slides = [{'page': item['page'], 'note': item['note']} for item in items]
+          print(json.dumps(slides, indent=2))
+          " > "$dir/featured-slides.json" \
                 && echo "  ✓ featured-slides.json ($(jq length $dir/featured-slides.json) slides)" \
                 || echo "  ✗ featured slides query failed"
 
@@ -69,7 +69,8 @@ print(json.dumps(slides, indent=2))
 
               # 4. Rasterise each featured page to PNG
               mkdir -p "$dir/slides"
-              if [ -f "$dir/slides.pdf" ] && [ -f "$dir/featured-slides.json" ]; then
+              if [ -f "$dir/slides.pdf" ] && [ -f "$dir/featured-slides.json" ] \
+                && [ "$(jq length $dir/featured-slides.json)" -gt 0 ]; then
                 jq -r '.[].page' "$dir/featured-slides.json" | while read page; do
                   pdftoppm -r 150 -png -f "$page" -l "$page" \
                     "$dir/slides.pdf" "$dir/slides/page" \
@@ -80,30 +81,31 @@ print(json.dumps(slides, indent=2))
 
               # 5. Merge metadata + featured slides into engagement.json
               python3 -c "
-import json, os, glob
+          import json, os, glob
 
-with open('$dir/engagement-meta.json') as f:
-    meta = json.load(f)
+          with open('$dir/engagement-meta.json') as f:
+              meta = json.load(f)
 
-slides_path = '$dir/featured-slides.json'
-if os.path.exists(slides_path) and os.path.getsize(slides_path) > 2:
-    with open(slides_path) as f:
-        featured = json.load(f)
-    # Add the image path each slide will be served from
-    for s in featured:
-        p = str(s['page']).zfill(2)  # pdftoppm zero-pads
-        # pdftoppm names: page-01.png, page-02.png etc
-        candidates = glob.glob('$dir/slides/page-' + p + '.png') + \
-                     glob.glob('$dir/slides/page-0' + str(s['page']) + '.png')
-        s['image'] = 'slides/' + os.path.basename(candidates[0]) if candidates else None
-    meta['featured_slides'] = featured
-else:
-    meta['featured_slides'] = []
+          slides_path = '$dir/featured-slides.json'
+          if os.path.exists(slides_path) and os.path.getsize(slides_path) > 2:
+              with open(slides_path) as f:
+                  featured = json.load(f)
+              for s in featured:
+                  p = str(s['page'])
+                  candidates = sorted(glob.glob('$dir/slides/page-*.png'))
+                  # pdftoppm names pages sequentially from the -f flag; match by index
+                  match = [c for c in candidates if c.endswith(p.zfill(6) + '.png')
+                           or c.endswith(p.zfill(2) + '.png')
+                           or c.endswith('-' + p + '.png')]
+                  s['image'] = 'slides/' + os.path.basename(match[0]) if match else None
+              meta['featured_slides'] = featured
+          else:
+              meta['featured_slides'] = []
 
-with open('$dir/engagement.json', 'w') as f:
-    json.dump(meta, f, indent=2)
-print('  ✓ engagement.json merged')
-" 
+          with open('$dir/engagement.json', 'w') as f:
+              json.dump(meta, f, indent=2)
+          print('  ✓ engagement.json merged')
+          "
           done
 
       - name: Build site
