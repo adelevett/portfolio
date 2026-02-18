@@ -33,38 +33,42 @@ title: Professional Development Log
       {% for term, items in terms %}
         <div class="term-group">
           <h2 class="term-heading mono">{{ term }}</h2>
-          <div class="cards-grid">
+
+          <div class="timeline">
+            <div class="timeline-spine"></div>
             {% for e in items %}
-              <a href="{{ ('/' + e.slug + '/') | url }}" class="engagement-card">
-                <div class="card-image">
-                  {% if e.thumb %}
-                    <img src="{{ e | assetUrl(e.thumb) }}" alt="{{ e.title }}" loading="lazy">
-                  {% else %}
-                    <div class="card-image-placeholder">
-                      <span class="mono">{{ e.venue }}</span>
+              {%- set side = "left" if loop.index0 % 2 == 0 else "right" -%}
+              <div class="timeline-row timeline-row--{{ side }}">
+
+                <a href="{{ ('/' + e.slug + '/') | url }}" class="timeline-card">
+                  <div class="tcard-image">
+                    {% if e.thumb %}
+                      <img src="{{ (e | assetUrl(e.thumb)) | url }}" alt="{{ e.title }}" loading="lazy">
+                    {% else %}
+                      <div class="tcard-image-placeholder mono">{{ e.venue }}</div>
+                    {% endif %}
+                    <div class="tcard-location mono">
+                      <span class="badge-dot"></span>{{ e.location }}
                     </div>
-                  {% endif %}
-                  <div class="card-location-badge mono">
-                    <span class="badge-dot"></span>{{ e.location }}
+                  </div>
+                  <div class="tcard-body">
+                    <p class="tcard-event mono">{{ e.event }}</p>
+                    <h3 class="tcard-title">{{ e.title }}</h3>
+                  </div>
+                </a>
+
+                <div class="timeline-dot-col">
+                  <div class="timeline-dot"></div>
+                  <div class="tcard-date-badge mono">
+                    <span class="date-icon">◷</span>{{ e.date | niceDate }}
                   </div>
                 </div>
-                <div class="card-body">
-                  <p class="card-event mono">{{ e.event }}</p>
-                  <h3 class="card-title">{{ e.title }}</h3>
-                  <p class="card-blurb">{{ e.blurb | truncate(120) }}</p>
-                  <div class="card-tags">
-                    {% for tag in e.tags %}
-                      <span class="tag">{{ tag }}</span>
-                    {% endfor %}
-                  </div>
-                </div>
-                <div class="card-footer mono">
-                  <span class="card-date">{{ e.date | niceDate }}</span>
-                  <span class="card-arrow">→</span>
-                </div>
-              </a>
+
+                <div class="timeline-spacer"></div>
+              </div>
             {% endfor %}
           </div>
+
         </div>
       {% endfor %}
     </div>

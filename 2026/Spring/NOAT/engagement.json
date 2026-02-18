@@ -10,5 +10,22 @@
   "tags": ["accessibility", "PDF", "AI", "ePub"],
   "blurb": "A practical overview of AI-assisted tooling for generating accessible alternate media formats, covering PDF splitting, ePub repackaging, and on-device TTS.",
   "hero": "assets/gutenberg_press.png",
-  "thumb": "assets/tocgen.split.png"
+  "thumb": "assets/tocgen.split.png",
+  "featured_slides": [
+    {
+      "page": 3,
+      "note": "The direction of the arrow matters. PDF starts from a visual intention and optionally layers meaning on top — remediation as an afterthought. ePub inverts this: semantic structure comes first and display is derived from it. This distinction shapes every workflow decision that follows.",
+      "image": "assets/gutenberg_press.png"
+    },
+    {
+      "page": 7,
+      "note": "pdf.tocgen uses three composable CLI tools: pdfxmeta identifies candidate headings by font metrics, pdftocgen records them into a recipe file you can edit, and pdftocio injects the resulting table of contents back into the PDF. Copilot wraps the split logic around the generated bookmarks.",
+      "image": "assets/tocgen.split.png"
+    },
+    {
+      "page": 8,
+      "note": "MinerU treats each PDF page as an image and applies object detection to identify text blocks, figures, and tables before classifying their reading order. The quality of the accessible output is bounded by how consistently the source document was structured.",
+      "image": "assets/layout.png"
+    }
+  ]
 }

@@ -47,7 +47,7 @@ Add this near the top of `slides.typ`, after your imports:
 
 ```bash
 npm install
-npm start        
+npm start        # serves at http://localhost:8080
 ```
 
 The `engagement.json` files are committed alongside `slides.typ` so you can develop the site locally without running Typst. When you push, CI regenerates them from source.
