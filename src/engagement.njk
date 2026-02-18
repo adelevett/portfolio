@@ -27,14 +27,36 @@ layout: base.njk
     </div>
   </div>
 
-  <div class="engagement-body">
-
-
-
-    <div class="engagement-narrative">
-      <p class="lead">{{ e.blurb }}</p>
+  {% if e.featured_slides and e.featured_slides.length %}
+  <div class="featured-slides">
+    <div class="featured-slides-inner">
+      <p class="featured-slides-label mono">Selected slides</p>
+      {% for slide in e.featured_slides %}
+        <div class="slide-row {% if loop.index0 % 2 == 1 %}slide-row--flip{% endif %}">
+          <div class="slide-frame">
+            {% if slide.image %}
+              <button class="slide-zoom-btn"
+                data-full="{{ (e | assetUrl(slide.image)) | url }}"
+                aria-label="View slide {{ slide.page }} fullscreen">
+                <img src="{{ (e | assetUrl(slide.image)) | url }}" alt="Slide {{ slide.page }}" loading="lazy">
+                <span class="slide-zoom-icon" aria-hidden="true">⤢</span>
+              </button>
+            {% else %}
+              <div class="slide-missing mono">Slide {{ slide.page }}</div>
+            {% endif %}
+            <span class="slide-page-badge mono">p.{{ slide.page }}</span>
+          </div>
+          <div class="slide-note">
+            <div class="slide-note-rule"></div>
+            <p>{{ slide.note }}</p>
+          </div>
+        </div>
+      {% endfor %}
     </div>
+  </div>
+  {% endif %}
 
+  <div class="engagement-body">
 
     <aside class="engagement-meta">
       <dl class="meta-list">
@@ -76,64 +98,60 @@ layout: base.njk
           <span>Download slides (PDF)</span>
         </a>
       </div>
-    </aside>    
+    </aside>
 
-  </div>
-
-  {% if e.featured_slides and e.featured_slides.length %}
-  <div class="featured-slides">
-    <div class="featured-slides-inner">
-      <p class="featured-slides-label mono">Selected slides</p>
-      {% for slide in e.featured_slides %}
-        <div class="slide-row {% if loop.index0 % 2 == 1 %}slide-row--flip{% endif %}">
-          <div class="slide-frame">
-            {% if slide.image %}
-              <button class="slide-zoom-btn" data-src="{{ (e | assetUrl(slide.image)) | url }}" aria-label="View slide fullscreen">
-                <img src="{{ (e | assetUrl(slide.image)) | url }}" alt="Slide {{ slide.page }}" loading="lazy">
-                <span class="slide-zoom-icon">⤢</span>
-              </button>
-            {% else %}
-              <div class="slide-missing mono">Slide {{ slide.page }}</div>
-            {% endif %}
-            <span class="slide-page-badge mono">p.{{ slide.page }}</span>
-          </div>
-          <div class="slide-note">
-            <div class="slide-note-rule"></div>
-            <p>{{ slide.note }}</p>
-          </div>
-        </div>
-      {% endfor %}
+    <div class="engagement-narrative">
+      <p class="lead">{{ e.blurb }}</p>
     </div>
-  </div>
-  <div class="slide-modal" id="slideModal" role="dialog" aria-modal="true" aria-label="Slide fullscreen view">
-    <button class="slide-modal-close" aria-label="Close">✕</button>
-    <img class="slide-modal-img" src="" alt="">
+
   </div>
 
-  <script>
-    const modal = document.getElementById('slideModal');
-    const modalImg = modal.querySelector('.slide-modal-img');
+</article>
 
-    document.querySelectorAll('.slide-zoom-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        modalImg.src = btn.dataset.src;
+<!-- Modal — outside article, at body level -->
+<div class="slide-modal" id="slideModal" role="dialog" aria-modal="true" aria-label="Slide fullscreen view">
+  <button class="slide-modal-close" id="slideModalClose" aria-label="Close">✕</button>
+  <img class="slide-modal-img" id="slideModalImg" src="" alt="">
+</div>
+
+<script>
+  (function () {
+    var modal = document.getElementById('slideModal');
+    var modalImg = document.getElementById('slideModalImg');
+    var closeBtn = document.getElementById('slideModalClose');
+
+    function openModal(src) {
+      modalImg.src = src;
+      modal.style.display = 'flex';
+      requestAnimationFrame(function () {
         modal.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
       });
-    });
+      document.body.style.overflow = 'hidden';
+    }
 
     function closeModal() {
       modal.classList.remove('is-open');
       document.body.style.overflow = '';
-      modalImg.src = '';
+      setTimeout(function () {
+        modal.style.display = 'none';
+        modalImg.src = '';
+      }, 200);
     }
 
-    modal.querySelector('.slide-modal-close').addEventListener('click', closeModal);
-    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-  </script>
-  {% endif %}
+    document.querySelectorAll('.slide-zoom-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        openModal(btn.getAttribute('data-full'));
+      });
+    });
 
+    closeBtn.addEventListener('click', closeModal);
 
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeModal();
+    });
 
-</article>
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+    });
+  })();
+</script>
