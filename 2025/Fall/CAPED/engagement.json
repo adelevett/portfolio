@@ -1,0 +1,41 @@
+{
+  "title": "Head in the Cloud? What's on the Horizon for Offline Intelligence",
+  "event": "CAPED 2025: Building Tomorrow, Together",
+  "year": "2025",
+  "term": "Fall",
+  "venue": "CAPED",
+  "location": "Santa Clara, CA",
+  "date": "2025-10-13",
+  "collaborators": [],
+  "tags": ["assistive technology", "AI", "accessibility", "offline", "subscription"],
+  "blurb": "Subscription fatigue? There should be an app for that. Explores the consequences of cloud-based assistive technology delivery — the subscription trap, recurring cost burden, and what offline and on-device AI alternatives exist today and on the horizon.",
+  "hero": "assets/slide-06.png",
+  "thumb": "assets/slide-03.png",
+  "featured_slides": [
+    {
+      "page": 3,
+      "note": "LiveScribe is a useful case study because it illustrates the trajectory so clearly — the intelligence starts on the device, then the subscription creep begins as the cloud becomes load-bearing. The note paper itself becomes the recurring revenue mechanism.",
+      "image": "assets/slide-03.png"
+    },
+    {
+      "page": 6,
+      "note": "The Kurzweil Reading Machine is the origin point of the whole conversation. Purpose-built, expensive, offline, no recurring cost — and genuinely transformative for blind readers. The question the talk asks is whether anything in that model is recoverable.",
+      "image": "assets/slide-06.png"
+    },
+    {
+      "page": 8,
+      "note": "The ImageNet moment is where the current AI wave actually began. The 2012 AlexNet result wasn't just an incremental improvement — it was a discontinuity that made everything that followed possible, including the on-device models the talk ends with.",
+      "image": "assets/slide-08.png"
+    },
+    {
+      "page": 12,
+      "note": "The Epoch AI chart makes the case that algorithmic progress — not just raw compute — is driving capability gains. This matters for the offline argument: if you can do more with less, on-device becomes viable at the consumer hardware level.",
+      "image": "assets/slide-12.png"
+    },
+    {
+      "page": 13,
+      "note": "Small is Sufficient is the thesis slide in chart form. The trend across every modality — language, vision, audio — is that the smallest model capable of a given task keeps shrinking. That compression is what makes offline assistive technology plausible again.",
+      "image": "assets/slide-13.png"
+    }
+  ]
+}
