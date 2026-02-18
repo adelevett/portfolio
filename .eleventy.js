@@ -2,11 +2,15 @@ const fs = require("fs");
 const path = require("path");
 
 module.exports = function (eleventyConfig) {
-  // Pass through assets copied by CI, and css
+  // Pass through CSS
   eleventyConfig.addPassthroughCopy("src/css");
-  eleventyConfig.addPassthroughCopy({
-    "2026": "assets/2026"
-  });
+
+  // Auto-discover all year folders (2024/, 2025/, 2026/ etc.)
+  fs.readdirSync(path.resolve("."))
+    .filter(f => /^\d{4}$/.test(f) && fs.statSync(path.resolve(f)).isDirectory())
+    .forEach(year => {
+      eleventyConfig.addPassthroughCopy({ [year]: "assets/" + year });
+    });
 
   // Filter: format date string nicely
   eleventyConfig.addFilter("niceDate", (dateStr) => {
@@ -29,19 +33,20 @@ module.exports = function (eleventyConfig) {
     return grouped;
   });
 
-  // Filter: build asset URL from engagement path + relative asset path
+  // Filter: build asset URL
+  // assetPath is relative to the engagement folder e.g. "assets/foo.png" or "slides/page-03.png"
   eleventyConfig.addFilter("assetUrl", (engagement, assetPath) => {
     if (!assetPath) return null;
-    return `/assets/${engagement.year}/${engagement.term}/${engagement.venue}/${assetPath}`;
+    return "/assets/" + engagement.year + "/" + engagement.term + "/" + engagement.venue + "/" + assetPath;
   });
 
   return {
+    pathPrefix: "/portfolio/",
     dir: {
       input: "src",
       output: "_site",
       includes: "_includes",
       data: "_data"
-    },
-    pathPrefix: "/portfolio/"
+    }
   };
 };
