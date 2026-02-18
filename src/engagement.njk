@@ -27,30 +27,6 @@ layout: base.njk
     </div>
   </div>
 
-  {% if e.featured_slides and e.featured_slides.length %}
-  <div class="featured-slides">
-    <div class="featured-slides-inner">
-      <p class="featured-slides-label mono">Selected slides</p>
-      {% for slide in e.featured_slides %}
-        <div class="slide-row {% if loop.index0 % 2 == 1 %}slide-row--flip{% endif %}">
-          <div class="slide-frame">
-            {% if slide.image %}
-              <img src="{{ (e | assetUrl(slide.image)) | url }}" alt="Slide {{ slide.page }}" loading="lazy">
-            {% else %}
-              <div class="slide-missing mono">Slide {{ slide.page }}</div>
-            {% endif %}
-            <span class="slide-page-badge mono">p.{{ slide.page }}</span>
-          </div>
-          <div class="slide-note">
-            <div class="slide-note-rule"></div>
-            <p>{{ slide.note }}</p>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-  {% endif %}
-
   <div class="engagement-body">
 
     <aside class="engagement-meta">
@@ -100,5 +76,31 @@ layout: base.njk
     </div>
 
   </div>
+
+  {% if e.featured_slides and e.featured_slides.length %}
+  <div class="featured-slides">
+    <div class="featured-slides-inner">
+      <p class="featured-slides-label mono">Selected slides</p>
+      {% for slide in e.featured_slides %}
+        <div class="slide-row {% if loop.index0 % 2 == 1 %}slide-row--flip{% endif %}">
+          <div class="slide-frame">
+            {% if slide.image %}
+              <img src="{{ (e | assetUrl(slide.image)) | url }}" alt="Slide {{ slide.page }}" loading="lazy">
+            {% else %}
+              <div class="slide-missing mono">Slide {{ slide.page }}</div>
+            {% endif %}
+            <span class="slide-page-badge mono">p.{{ slide.page }}</span>
+          </div>
+          <div class="slide-note">
+            <div class="slide-note-rule"></div>
+            <p>{{ slide.note }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+
 
 </article>
