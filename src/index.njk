@@ -35,7 +35,7 @@ title: Professional Development Log
           <h2 class="term-heading mono">{{ term }}</h2>
           <div class="cards-grid">
             {% for e in items %}
-              <a href="/{{ e.slug }}/" class="engagement-card">
+              <a href="{{ ('/' + e.slug + '/') | url }}" class="engagement-card">
                 <div class="card-image">
                   {% if e.thumb %}
                     <img src="{{ e | assetUrl(e.thumb) }}" alt="{{ e.title }}" loading="lazy">

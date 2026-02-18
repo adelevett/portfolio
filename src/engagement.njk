@@ -13,7 +13,7 @@ layout: base.njk
     <div class="engagement-hero-overlay">
       <div class="engagement-hero-content">
         <div class="breadcrumb mono">
-          <a href="/">Portfolio</a>
+          <a href="{{ '/' | url }}">Portfolio</a>
           <span>›</span>
           <span>{{ e.year }}</span>
           <span>›</span>
@@ -64,7 +64,7 @@ layout: base.njk
       </dl>
 
       <div class="pdf-download">
-        <a href="/assets/{{ e.year }}/{{ e.term }}/{{ e.venue }}/slides.pdf" class="pdf-btn" download>
+        <a href="{{ ('/assets/' + e.year + '/' + e.term + '/' + e.venue + '/slides.pdf') | url }}" class="pdf-btn" download>
           <span class="pdf-icon">⬇</span>
           <span>Download slides (PDF)</span>
         </a>
