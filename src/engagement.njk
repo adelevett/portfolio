@@ -1,0 +1,80 @@
+---
+pagination:
+  data: engagements
+  size: 1
+  alias: e
+permalink: "/{{ e.slug }}/"
+layout: base.njk
+---
+
+<article class="engagement-page">
+
+  <div class="engagement-hero" {% if e.hero %}style="--hero-img: url('{{ e | assetUrl(e.hero) }}')"{% endif %}>
+    <div class="engagement-hero-overlay">
+      <div class="engagement-hero-content">
+        <div class="breadcrumb mono">
+          <a href="/">Portfolio</a>
+          <span>›</span>
+          <span>{{ e.year }}</span>
+          <span>›</span>
+          <span>{{ e.term }}</span>
+          <span>›</span>
+          <span>{{ e.venue }}</span>
+        </div>
+        <h1 class="engagement-title">{{ e.title }}</h1>
+        <p class="engagement-event mono">{{ e.event }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="engagement-body">
+
+    <aside class="engagement-meta">
+      <dl class="meta-list">
+        <div class="meta-item">
+          <dt class="mono">Date</dt>
+          <dd>{{ e.date | niceDate }}</dd>
+        </div>
+        <div class="meta-item">
+          <dt class="mono">Location</dt>
+          <dd>{{ e.location }}</dd>
+        </div>
+        <div class="meta-item">
+          <dt class="mono">Venue</dt>
+          <dd>{{ e.venue }}</dd>
+        </div>
+        {% if e.collaborators and e.collaborators.length %}
+        <div class="meta-item">
+          <dt class="mono">With</dt>
+          <dd>
+            {% for c in e.collaborators %}
+              <span class="collaborator">{{ c }}</span>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+          </dd>
+        </div>
+        {% endif %}
+        <div class="meta-item">
+          <dt class="mono">Topics</dt>
+          <dd class="tag-cluster">
+            {% for tag in e.tags %}
+              <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </dd>
+        </div>
+      </dl>
+
+      <div class="pdf-download">
+        <a href="/assets/{{ e.year }}/{{ e.term }}/{{ e.venue }}/slides.pdf" class="pdf-btn" download>
+          <span class="pdf-icon">⬇</span>
+          <span>Download slides (PDF)</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="engagement-narrative">
+      <p class="lead">{{ e.blurb }}</p>
+    </div>
+
+  </div>
+
+</article>

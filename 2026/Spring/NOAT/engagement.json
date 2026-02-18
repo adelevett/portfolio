@@ -1,0 +1,14 @@
+{
+  "title": "AI assisted workflows for Alternate Media delivery",
+  "event": "NOAT 2026: educATe and integrATe",
+  "year": "2026",
+  "term": "Spring",
+  "venue": "NOAT",
+  "location": "Virtual",
+  "date": "2026-02-06",
+  "collaborators": [],
+  "tags": ["accessibility", "PDF", "AI", "ePub"],
+  "blurb": "A practical overview of AI-assisted tooling for generating accessible alternate media formats, covering PDF splitting, ePub repackaging, and on-device TTS.",
+  "hero": "assets/gutenberg_press.png",
+  "thumb": "assets/tocgen.split.png"
+}

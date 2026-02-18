@@ -1,0 +1,72 @@
+---
+layout: base.njk
+title: Professional Development Log
+---
+
+<section class="hero-banner">
+  <div class="hero-inner">
+    <p class="hero-eyebrow mono">Follow the work</p>
+    <h1 class="hero-title">Professional<br><em>Development</em><br>Log</h1>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">{{ engagements | length }}</span>
+        <span class="stat-label">engagements</span>
+      </div>
+      <div class="stat-divider">◈</div>
+      <div class="stat">
+        <span class="stat-num">{{ engagements | length }}</span>
+        <span class="stat-label">talks &amp; workshops</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-section">
+  {% set grouped = engagements | groupByYearTerm %}
+  {% for year, terms in grouped %}
+    <div class="year-group">
+      <div class="year-label">
+        <span class="mono year-num">{{ year }}</span>
+        <div class="year-line"></div>
+      </div>
+
+      {% for term, items in terms %}
+        <div class="term-group">
+          <h2 class="term-heading mono">{{ term }}</h2>
+          <div class="cards-grid">
+            {% for e in items %}
+              <a href="/{{ e.slug }}/" class="engagement-card">
+                <div class="card-image">
+                  {% if e.thumb %}
+                    <img src="{{ e | assetUrl(e.thumb) }}" alt="{{ e.title }}" loading="lazy">
+                  {% else %}
+                    <div class="card-image-placeholder">
+                      <span class="mono">{{ e.venue }}</span>
+                    </div>
+                  {% endif %}
+                  <div class="card-location-badge mono">
+                    <span class="badge-dot"></span>{{ e.location }}
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p class="card-event mono">{{ e.event }}</p>
+                  <h3 class="card-title">{{ e.title }}</h3>
+                  <p class="card-blurb">{{ e.blurb | truncate(120) }}</p>
+                  <div class="card-tags">
+                    {% for tag in e.tags %}
+                      <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="card-footer mono">
+                  <span class="card-date">{{ e.date | niceDate }}</span>
+                  <span class="card-arrow">→</span>
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</section>
