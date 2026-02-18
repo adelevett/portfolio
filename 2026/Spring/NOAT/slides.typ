@@ -14,7 +14,7 @@
 #let feature(note) = context [#metadata((
   type: "featured-slide",
   note: note,
-  page: here().page,
+  page: here().page(),
 )) <featured-slide>]
 
 // ── Engagement metadata ────────────────────────────────────────────
