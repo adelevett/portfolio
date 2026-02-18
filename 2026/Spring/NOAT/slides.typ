@@ -87,7 +87,7 @@
   #place(top + left, dx: 16cm, dy: 8cm,
     pdf.artifact(image("assets/gutenberg_press.png", width: 8cm))
   )
-  #feature[The direction of the arrow matters. PDF starts from a visual intention and optionally layers meaning on top — remediation as an afterthought. ePub inverts this: semantic structure comes first and display is derived from it. This distinction shapes every workflow decision that follows.]
+  #feature("The direction of the arrow matters. PDF starts from a visual intention and optionally layers meaning on top — remediation as an afterthought. ePub inverts this: semantic structure comes first and display is derived from it. This distinction shapes every workflow decision that follows.")
 ]
 
 #slide[
@@ -142,7 +142,7 @@
     - VS Code Copilot generates wrap around functionality#footnote[
     #link("https://huggingface.co/spaces/adelevett/pdf.tocgen.split")
   ]
-  #feature[pdf.tocgen uses three composable CLI tools: pdfxmeta identifies candidate headings by font metrics, pdftocgen records them into a recipe file you can edit, and pdftocio injects the resulting table of contents back into the PDF. Copilot wraps the split logic around the generated bookmarks.]
+#feature("pdf.tocgen uses three composable CLI tools: pdfxmeta identifies candidate headings by font metrics, pdftocgen records them into a recipe file you can edit, and pdftocio injects the resulting table of contents back into the PDF. Copilot wraps the split logic around the generated bookmarks.")
   ]
 
 
@@ -160,7 +160,7 @@
       image("assets/layout.png", alt: "MinerU performs object detection from images of PDF files in order to derive each text block's and reading order and outputs machine accessible text formats including markdown and JSON", width: 80%),
     )
   ]
-  #feature[MinerU treats each PDF page as an image and applies object detection to identify text blocks, figures, and tables before classifying their reading order. The quality of the accessible output is bounded by how consistently the source document was structured — complex multi-column layouts with decorative elements remain challenging.]
+  #feature("MinerU treats each PDF page as an image and applies object detection to identify text blocks, figures, and tables before classifying their reading order. The quality of the accessible output is bounded by how consistently the source document was structured — complex multi-column layouts with decorative elements remain challenging.")
 ]
 
 
