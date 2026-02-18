@@ -32,8 +32,7 @@ module.exports = function (eleventyConfig) {
   // Filter: build asset URL from engagement path + relative asset path
   eleventyConfig.addFilter("assetUrl", (engagement, assetPath) => {
     if (!assetPath) return null;
-    const filename = path.basename(assetPath);
-    return `/assets/${engagement.year}/${engagement.term}/${engagement.venue}/assets/${filename}`;
+    return `/assets/${engagement.year}/${engagement.term}/${engagement.venue}/${assetPath}`;
   });
 
   return {
