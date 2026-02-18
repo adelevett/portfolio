@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const { glob } = require("glob");
 
 module.exports = function (eleventyConfig) {
   // Pass through assets copied by CI, and css
