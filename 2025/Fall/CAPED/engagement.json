@@ -14,17 +14,17 @@
   "featured_slides": [
     {
       "page": 4,
-      "note": "LiveScribe is a useful case study because it illustrates the trajectory so clearly — the intelligence starts on the device, then the subscription creep begins as the cloud becomes load-bearing. The note paper itself becomes the recurring revenue mechanism.",
+      "note": "Designed for the professional sector, LiveScribe Smartpens have long been a staple for student disability offices because they combine paper-based notetaking with on-device audio recording and intuitive tap-to-play recall. This original configuration has been superseded by newer models with smartphone app integrations which illustrates the tension between the stable feature set desirable in the context of Assistive Technology and accommodations versus the dynamics of continuous feature updates and enhancement.",
       "image": "assets/slide-03.png"
     },
     {
       "page": 8,
-      "note": "The Kurzweil Reading Machine is emblematic of early Assistive TEchnolgy - purpose-built, expensive, offline, no recurring cost. The question the talk asks is whether anything in that model is recoverable.",
+      "note": "The Kurzweil Reading Machine is emblematic of early Assistive Technology - purpose-built and expensive, with custom interfaces requiring intensive user and operator training. The question then is whether the benefits of technology evolution away from this model toward more affordable, device-independent, intuitive access is necessarily tied to the cloud and subscription-based delivery model.",
       "image": "assets/slide-06.png"
     },
     {
       "page": 15,
-      "note": "The trend across every modality — language, vision, audio — is that the smallest model capable of a given task keeps shrinking. That compression is what makes offline assistive technology plausible again.",
+      "note": "The trend across every modality — language, vision, audio — is that the smallest model capable of a given task keeps shrinking in size and associated resource demand. That compression suggests offline assistive technology uses will continue to emerge and promote new forms of access outside of established patterns of the past and present.",
       "image": "assets/slide-13.png"
     }
   ]
