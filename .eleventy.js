@@ -30,7 +30,25 @@ module.exports = function (eleventyConfig) {
       if (!grouped[y][t]) grouped[y][t] = [];
       grouped[y][t].push(e);
     }
-    return grouped;
+
+    // Convert to sorted array for Nunjucks iteration order
+    const result = Object.keys(grouped)
+      .sort((a, b) => b - a) // Years descending
+      .map(year => {
+        const termsMap = { "Fall": 2, "Spring": 1 };
+        const terms = Object.keys(grouped[year])
+          .sort((a, b) => (termsMap[b] || 0) - (termsMap[a] || 0)) // Fall before Spring
+          .map(term => ({
+            name: term,
+            items: grouped[year][term]
+          }));
+        return {
+          year: year,
+          terms: terms
+        };
+      });
+
+    return result;
   });
 
   // Filter: build asset URL

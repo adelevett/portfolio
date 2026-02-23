@@ -10,11 +10,6 @@ title: Professional Development Log
     <div class="hero-stats">
       <div class="stat">
         <span class="stat-num">{{ engagements | length }}</span>
-        <span class="stat-label">engagements</span>
-      </div>
-      <div class="stat-divider">◈</div>
-      <div class="stat">
-        <span class="stat-num">{{ engagements | length }}</span>
         <span class="stat-label">talks &amp; workshops</span>
       </div>
     </div>
@@ -23,20 +18,20 @@ title: Professional Development Log
 
 <section class="timeline-section">
   {% set grouped = engagements | groupByYearTerm %}
-  {% for year, terms in grouped %}
+  {% for yearGroup in grouped %}
     <div class="year-group">
       <div class="year-label">
-        <span class="mono year-num">{{ year }}</span>
+        <span class="mono year-num">{{ yearGroup.year }}</span>
         <div class="year-line"></div>
       </div>
 
-      {% for term, items in terms %}
+      {% for termGroup in yearGroup.terms %}
         <div class="term-group">
-          <h2 class="term-heading mono">{{ term }}</h2>
+          <h2 class="term-heading mono">{{ termGroup.name }}</h2>
 
           <div class="timeline">
             <div class="timeline-spine"></div>
-            {% for e in items %}
+            {% for e in termGroup.items %}
               {%- set side = "left" if loop.index0 % 2 == 0 else "right" -%}
               <div class="timeline-row timeline-row--{{ side }}">
 
