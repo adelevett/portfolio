@@ -659,7 +659,11 @@ img {
   max-width: var(--max-w);
   margin: 0 auto;
   width: 100%;
-  padding: 3rem 2.5rem;
+  padding: 4rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 4rem;
+  align-items: end;
 }
 
 .breadcrumb {
@@ -697,29 +701,27 @@ img {
   color: var(--amber);
 }
 
-/* ─── Engagement Body ─────────────────────────────────────────── */
-.engagement-body {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 4rem 2.5rem;
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 5rem;
-  align-items: start;
+/* ─── Engagement Metadata (Hero Overlay) ───────────────────────── */
+.engagement-meta {
+  background: rgba(13, 17, 23, 0.6);
+  backdrop-filter: blur(12px);
+  padding: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--card-radius);
+  width: 100%;
 }
 
 .meta-list {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .meta-item {
-  margin-bottom: 1.75rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding-bottom: 1.75rem;
-}
-
-.meta-item:last-of-type {
-  border-bottom: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .meta-item dt {
@@ -743,43 +745,10 @@ img {
   margin-top: 0.25rem;
 }
 
-.pdf-download {
-  margin-top: 2.5rem;
-}
-
-.pdf-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink);
-  background: var(--amber);
-  padding: 0.85rem 1.25rem;
-  border-radius: 2px;
-  transition: background var(--transition), transform var(--transition);
-}
-
-.pdf-btn:hover {
-  background: #ffbb33;
-  transform: translateY(-2px);
-}
-
-.pdf-icon {
-  font-size: 1rem;
-}
-
-.engagement-narrative .lead {
-  font-family: var(--font-body);
-  font-size: 1.2rem;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--cream-dim);
-  font-style: italic;
-  border-left: 3px solid var(--amber);
-  padding-left: 1.75rem;
+.engagement-meta .pdf-download {
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
 }
 
 /* ─── Footer ──────────────────────────────────────────────────── */
@@ -833,9 +802,16 @@ img {
     text-align: left !important;
   }
 
-  .engagement-body {
+  .engagement-hero-content {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+    padding: 3rem 1.5rem;
+    align-items: start;
+  }
+
+  .meta-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .site-header {
