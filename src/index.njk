@@ -32,7 +32,7 @@ title: Professional Development Log
           <div class="timeline">
             <div class="timeline-spine"></div>
             {% for e in termGroup.items %}
-              {%- set side = "left" if loop.index0 % 2 == 0 else "right" -%}
+              {%- set side = "left" if e.globalIndex % 2 == 0 else "right" -%}
               <div class="timeline-row timeline-row--{{ side }}">
 
                 <a href="{{ ('/' + e.slug + '/') | url }}" class="timeline-card">

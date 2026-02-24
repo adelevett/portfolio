@@ -25,8 +25,8 @@ module.exports = async function () {
           const rel = path.relative(root, path.dirname(full));
           const parts = rel.split(path.sep); // [year, Term, VENUE]
           data.slug = parts.map(p => p.toLowerCase()).join("/");
-          data.year  = data.year  || parts[0];
-          data.term  = data.term  || parts[1];
+          data.year = data.year || parts[0];
+          data.term = data.term || parts[1];
           data.venue = data.venue || parts[2];
           engagements.push(data);
         } catch (e) {
@@ -39,5 +39,9 @@ module.exports = async function () {
   walk(root);
   // Sort newest first
   engagements.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+
+  // Add global index for alternating layout across year/term boundaries
+  engagements.forEach((e, i) => e.globalIndex = i);
+
   return engagements;
 };
