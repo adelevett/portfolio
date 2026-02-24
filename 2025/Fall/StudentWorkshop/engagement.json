@@ -1,0 +1,39 @@
+{
+  "title": "Otter Power-Ups: Discover Workflows for Effective Study Notes",
+  "event": "DRC Student Workshop",
+  "year": "2025",
+  "term": "Fall",
+  "venue": "CSM",
+  "location": "San Mateo, CA",
+  "date": "2025-10-28",
+  "collaborators": [
+    "Kevin Sinarle"
+  ],
+  "tags": [
+    "accommodations",
+    "assistive technology",
+    "note-taking",
+    "Otter.ai",
+    "audio-recorded lectures"
+  ],
+  "blurb": "Session Description: Students in the DRC may have approved accommodations to use adapted technologies in the classroom to address disability-related obstacles around note-taking. While each student's individual needs vary, the use of these technologies can be a game changer for them to better learn from your lectures. Share your best practices for supporting note-taking with your colleagues. Spend some time with DRC staff to learn about the different technologies, how they are used by students to access learning, and address concerns you may have about technology use in the classroom.",
+  "hero": "assets/outline.png",
+  "thumb": "assets/title.png",
+  "featured_slides": [
+    {
+      "page": 5,
+      "note": "Otter provides structured notes automatically, but structure alone is insufficient for durable learning. This slide frames the three evidence-based principles — active recall, spaced retrieval, and conceptual depth — that the rest of the session's workflows are designed to layer on top of what Otter already produces.",
+      "image": "assets/evidence_based.png"
+    },
+    {
+      "page": 11,
+      "note": "Flashcard-based workflows are among the most researched study strategies, but their effectiveness depends on how cards are constructed and sequenced. This slide walks through a hierarchical approach that moves students from recognition toward genuine recall, directly applying the principles introduced earlier in the session.",
+      "image": "assets/sample_workflow.png"
+    },
+    {
+      "page": 12,
+      "note": "The resources here are chosen to extend the session beyond its runtime. Barbara Oakley's work provides the theoretical grounding for why the recommended strategies work, while ANKI operationalises spaced repetition with an algorithm that handles scheduling automatically — lowering the barrier for students to sustain the practice independently.",
+      "image": "assets/resources.png"
+    }
+  ]
+}
