@@ -3,12 +3,10 @@
   "event": "DRC Student Workshop",
   "year": "2025",
   "term": "Fall",
-  "venue": "CSM",
+  "venue": "DRC",
   "location": "San Mateo, CA",
   "date": "2025-10-28",
-  "collaborators": [
-    "Kevin Sinarle"
-  ],
+  "collaborators": [],
   "tags": [
     "accommodations",
     "assistive technology",
@@ -17,8 +15,8 @@
     "audio-recorded lectures"
   ],
   "blurb": "Session Description: Students in the DRC may have approved accommodations to use adapted technologies in the classroom to address disability-related obstacles around note-taking. While each student's individual needs vary, the use of these technologies can be a game changer for them to better learn from your lectures. Share your best practices for supporting note-taking with your colleagues. Spend some time with DRC staff to learn about the different technologies, how they are used by students to access learning, and address concerns you may have about technology use in the classroom.",
-  "hero": "assets/outline.png",
-  "thumb": "assets/title.png",
+  "hero": "assets/title.png",
+  "thumb": "assets/outline.png",
   "featured_slides": [
     {
       "page": 5,
@@ -32,7 +30,7 @@
     },
     {
       "page": 12,
-      "note": "The resources here are chosen to extend the session beyond its runtime. Barbara Oakley's work provides the theoretical grounding for why the recommended strategies work, while ANKI operationalises spaced repetition with an algorithm that handles scheduling automatically — lowering the barrier for students to sustain the practice independently.",
+      "note": "The resources build on the information shared in the workshop. Barbara Oakley's offers an engaging and personal perspective for why the recommended strategies work, while ANKI offers students who are comfortable with digital leanring the opportunity to apply their flashcard strategies while relying on automated spaced repetition to sustain the practice independently.",
       "image": "assets/resources.png"
     }
   ]
