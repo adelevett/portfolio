@@ -1,0 +1,37 @@
+{
+  "title": "Accessibility Features 101 - Tools and Tips for Every Student",
+  "event": "DCR x Writing Center Collaborative Workshop",
+  "year": "2026",
+  "term": "Spring",
+  "venue": "TWC",
+  "location": "San Mateo, CA",
+  "date": "2026-03-25",
+  "collaborators": "Sarah Fama",
+  "tags": [
+    "accessibility",
+    "text to speech",
+    "PDF",
+    "AI",
+    "ePub"
+  ],
+  "blurb": "Introducing students to free and open-source text to speech tools and built-in accessibility features on common software and platforms.",
+  "hero": "assets/optofono.png",
+  "thumb": "assets/compression.png",
+  "featured_slides": [
+    {
+      "page": 3,
+      "note": "Assistive functions are categorized by their architectural location, distinguishing between core OS accessibility panels, in-app menu toggles, and broader system settings like Focus modes. This structural breakdown clarifies why a feature available in one context may be absent in another, guiding students to search the correct environment for specific accommodations.",
+      "image": "slides/page-03.png"
+    },
+    {
+      "page": 5,
+      "note": "Native accessibility features exhibit platform-dependent fragmentation, where Live Captions function exclusively on Apple Silicon while Windows counterparts struggle with microphone input integration. These hardware and software constraints necessitate a comparative evaluation of built-in tools to ensure they meet the specific acoustic and visual requirements of the learning environment.",
+      "image": "slides/page-05.png"
+    },
+    {
+      "page": 11,
+      "note": "Inaccessible digital materials frequently require a remediation workflow involving online conversion services that apply Optical Character Recognition (OCR) to image-based PDFs. By uploading source files to platforms like SensusAccess, students can generate alternative text formats like ePub or Word that restore semantic structure and navigability.",
+      "image": "slides/page-11.png"
+    }
+  ]
+}

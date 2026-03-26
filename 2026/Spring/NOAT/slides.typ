@@ -87,7 +87,7 @@
   #place(top + left, dx: 16cm, dy: 8cm,
     pdf.artifact(image("assets/gutenberg_press.png", width: 8cm))
   )
-  #feature("The direction of the arrow matters. PDF starts from a visual intention and optionally layers meaning on top — remediation as an afterthought. ePub inverts this: semantic structure comes first and display is derived from it. This distinction shapes every workflow decision that follows.")
+  #feature("PDF is fundamentally a visual presentation format with reading order and semantic structure as a parallel component managed in the PDF authoring suite. In ePub, reading order and semantic markup directly determine visual display resulting in alt media workflows focused on verifying and manipulating plain text source files rather than GUI elements using point and click.")
 ]
 
 #slide[

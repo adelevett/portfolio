@@ -6,6 +6,7 @@
     "build": "eleventy",
     "start": "eleventy --serve",
     "generate": "node src/generate.mjs",
+    "generate:sync-features": "node src/generate.mjs --sync-features",
     "test:vl": "node src/test-vl.mjs"
   },
   "dependencies": {

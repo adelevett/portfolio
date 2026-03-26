@@ -24,7 +24,7 @@
     },
     {
       "page": 15,
-      "note": "The trend across every modality — language, vision, audio — is that the smallest model capable of a given task keeps shrinking in size and associated resource demand. That compression suggests offline assistive technology uses will continue to emerge and promote new forms of access outside of established patterns of the past and present.",
+      "note": "The trend across every modality — language, vision, audio — is that the smallest model capable of a given task keeps shrinking in size and associated resource demand. That compression suggests offline assistive technology uses will continue to emerge and promote new forms of access.",
       "image": "assets/slide-13.png"
     }
   ]

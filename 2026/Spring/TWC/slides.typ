@@ -6,7 +6,7 @@
   event: "DCR x Writing Center Collaborative Workshop",
   year: "2026",
   term: "Spring",
-  venue: "CSM Writing Center",
+  venue: "TWC",
   location: "San Mateo, CA",
   date: "2026-03-25",
   collaborators: ("Sarah Fama"),
@@ -15,6 +15,16 @@
   hero: "assets/optofono.png",
   thumb: "assets/compression.png"
 )) <engagement>
+
+// ── Helper: annotate a slide as featured with an explanatory note ──
+// Place #feature[] at the END of a #slide[] block.
+// typst query extracts the note and embeds the page number in the value.
+#let feature(note) = context [#metadata((
+  type: "featured-slide",
+  note: note,
+  page: here().page(),
+)) <featured-slide>]
+
 
 // 2. Setup the slide look manually (since themes were removed in 0.4.0)
 #set page(paper: "presentation-16-9", fill: rgb("FAF9F6")) // A soft off-white/cream
@@ -178,6 +188,7 @@
     [#os[OS Accessibility] #h(2em) #app[App Menu] #h(2em) #other[Other System Settings]]
   )
 )
+  #feature("Assistive functions are categorized by their architectural location, distinguishing between core OS accessibility panels, in-app menu toggles, and broader system settings like Focus modes. This structural breakdown clarifies why a feature available in one context may be absent in another, guiding students to search the correct environment for specific accommodations.")
 ]
 
 
@@ -236,6 +247,7 @@ Optophone vs Dictaphone (ca. 1930s)
   [#indexed_link("https://support.microsoft.com/en-us/windows/change-color-contrast-in-windows-fedc744c-90ac-69df-aed5-c8a90125e696")[Contrast themes]], [],
   table.hline(),
 )
+  #feature("Native accessibility features exhibit platform-dependent fragmentation, where Live Captions function exclusively on Apple Silicon while Windows counterparts struggle with microphone input integration. These hardware and software constraints necessitate a comparative evaluation of built-in tools to ensure they meet the specific acoustic and visual requirements of the learning environment.")
 ]
 
 
@@ -415,6 +427,7 @@ spacing: 1.4em,separator: [: ],hanging-indent: 0pt)
       
     ]
   )
+  #feature("Inaccessible digital materials frequently require a remediation workflow involving online conversion services that apply Optical Character Recognition (OCR) to image-based PDFs. By uploading source files to platforms like SensusAccess, students can generate alternative text formats like ePub or Word that restore semantic structure and navigability.")
 ]
 
 
