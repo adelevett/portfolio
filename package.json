@@ -4,7 +4,13 @@
   "description": "Professional development travel log",
   "scripts": {
     "build": "eleventy",
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "generate": "node src/generate.mjs",
+    "test:vl": "node src/test-vl.mjs"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "openai": "^4.0.0"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"

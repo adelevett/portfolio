@@ -197,6 +197,7 @@ Optophone vs Dictaphone (ca. 1930s)
     #place(bottom + right, dx: -5cm, dy: 3cm,(figure(image("assets/dict_oper.png", width: 33%, alt: "Woman wearing a formal dress sitting upright on an unupholsetered office chair while transcribing from the wax cylinders containing the recordings from the a Dictaphone."
 )))
   )
+
 ]
 
 
