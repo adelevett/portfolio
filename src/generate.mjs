@@ -347,18 +347,15 @@ async function generateFeaturedSlides(meta, pngPaths) {
 
   const systemPrompt = `You are helping build a professional portfolio for an accessibility educator.
 You will be shown all slides from a presentation deck. Your task:
-1. Choose ${MAX_FEATURED} slides that best illustrate the talk's key ideas for a portfolio reader.
+1. Choose ${MAX_FEATURED} slides that best illustrate the talk's key ideas for a peer evaluator from a non-technical domain.
 2. For each chosen slide, write a 2-sentence note explaining the core idea and why it matters.
 
 Write in this house style:
-- Use a professional, analytical portfolio voice.
-- Lead with the concept, tension, or mechanism on the slide, not with scene-setting.
-- Be specific about the workflow, accessibility issue, or pedagogical point.
-- Prefer concrete domain terms from the slide over generic language.
-- The second sentence should extend the interpretation or implication, not repeat the first.
+- Use a professionally curious voice.
+- Avoid duplicating terms from the slide and prefer simple language.
+- Focus on extending the interpretation or implication of the specific slide in the context of the presentation as a whole.
 - Avoid boilerplate such as "This slide shows", "Here, the presenter", "the final content slide", or generic praise.
 - Do not address the reader directly.
-- Do not speculate about intent unless it is strongly supported by the slide.
 
 Voice examples:
 ${FEATURE_NOTE_STYLE_EXAMPLES.map((example, index) => `${index + 1}. ${example}`).join("\n")}

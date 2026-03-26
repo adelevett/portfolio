@@ -151,6 +151,7 @@
 ))
   )
 
+  #feature("The session establishes a working definition centered on minimizing physical and mental effort, positioning these tools as universal design principles rather than niche accommodations. This perspective invites all learners to view interface adjustments as standard productivity strategies for managing fatigue.")
 ]
 
 
@@ -188,7 +189,7 @@
     [#os[OS Accessibility] #h(2em) #app[App Menu] #h(2em) #other[Other System Settings]]
   )
 )
-  #feature("Assistive functions are categorized by their architectural location, distinguishing between core OS accessibility panels, in-app menu toggles, and broader system settings like Focus modes. This structural breakdown clarifies why a feature available in one context may be absent in another, guiding students to search the correct environment for specific accommodations.")
+
 ]
 
 
@@ -247,7 +248,7 @@ Optophone vs Dictaphone (ca. 1930s)
   [#indexed_link("https://support.microsoft.com/en-us/windows/change-color-contrast-in-windows-fedc744c-90ac-69df-aed5-c8a90125e696")[Contrast themes]], [],
   table.hline(),
 )
-  #feature("Native accessibility features exhibit platform-dependent fragmentation, where Live Captions function exclusively on Apple Silicon while Windows counterparts struggle with microphone input integration. These hardware and software constraints necessitate a comparative evaluation of built-in tools to ensure they meet the specific acoustic and visual requirements of the learning environment.")
+
 ]
 
 
@@ -427,7 +428,7 @@ spacing: 1.4em,separator: [: ],hanging-indent: 0pt)
       
     ]
   )
-  #feature("Inaccessible digital materials frequently require a remediation workflow involving online conversion services that apply Optical Character Recognition (OCR) to image-based PDFs. By uploading source files to platforms like SensusAccess, students can generate alternative text formats like ePub or Word that restore semantic structure and navigability.")
+
 ]
 
 
@@ -495,6 +496,7 @@ spacing: 1.4em,separator: [: ],hanging-indent: 0pt)
   #place(top + left, dx: 0cm, dy: 2cm,(figure(image("assets/ai_text.png", width: auto, alt: "A passage of text rendered as color-coded horizontal blocks of pixels. Most blocks are blue, some are gray, and two are pink, with individual characters visible within each block."), caption: "Computer vision segmentation of a text passage")
   ))
 
+  #feature("Visual pattern recognition gaps reveal why automated text extraction frequently misinterprets complex layouts, necessitating human review. This reality emphasizes that digital conversion tools serve best as starting points rather than finished products for academic materials.")
 ]
 
 
@@ -647,6 +649,7 @@ spacing: 1.4em,separator: [: ],hanging-indent: 0pt)
   ]
    #place(top + left, dx: 15cm, dy: 2cm,(pdf.artifact(image("assets/imagination.png", height: 65%)))
 )
+  #feature("Concluding with a focus on cognitive preservation, the presentation warns against allowing format management to overshadow actual learning objectives. It advocates for pragmatic trade-offs that ensure assistive workflows remain sustainable habits rather than exhausting administrative tasks.")
 ]
 
 
