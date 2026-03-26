@@ -4,7 +4,10 @@
 #metadata((
   title: "Accessibility Features 101 - Tools and Tips for Every Student",
   event: "DCR x Writing Center Collaborative Workshop",
-  location: "CSM Writing Center",
+  year: "2026",
+  term: "Spring",
+  venue: "CSM Writing Center",
+  location: "San Mateo, CA",
   date: "2026-03-25",
   collaborators: ("Sarah Fama", "Justin Kawakami", "Hirania Gonzalez"),
   tags: ("accessibility", "text to speech", "PDF", "AI", "ePub"),
