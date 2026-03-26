@@ -9,7 +9,7 @@
   venue: "CSM Writing Center",
   location: "San Mateo, CA",
   date: "2026-03-25",
-  collaborators: ("Sarah Fama", "Justin Kawakami", "Hirania Gonzalez"),
+  collaborators: ("Sarah Fama"),
   tags: ("accessibility", "text to speech", "PDF", "AI", "ePub"),
   blurb: "Introducing students to free and open-source text to speech tools and built-in accessibility features on common software and platforms.",
   hero: "assets/optofono.png",
