@@ -1,6 +1,21 @@
 const fs = require("fs");
 const path = require("path");
 
+function normalizeStringList(value) {
+  if (Array.isArray(value)) {
+    return value
+      .map(item => typeof item === "string" ? item.trim() : String(item || "").trim())
+      .filter(Boolean);
+  }
+
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+    return trimmed ? [trimmed] : [];
+  }
+
+  return [];
+}
+
 module.exports = async function () {
   // Walk the repo root looking for engagement.json files
   // Expected path: {year}/{Term}/{VENUE}/engagement.json
@@ -28,6 +43,7 @@ module.exports = async function () {
           data.year = data.year || parts[0];
           data.term = data.term || parts[1];
           data.venue = data.venue || parts[2];
+          data.collaborators = normalizeStringList(data.collaborators);
           engagements.push(data);
         } catch (e) {
           console.warn("Could not parse", full, e.message);

@@ -696,14 +696,25 @@ button:focus-visible {
   align-items: end;
 }
 
+.hero-left {
+  display: grid;
+  gap: 0.9rem;
+  align-self: end;
+}
+
 .breadcrumb {
+  width: fit-content;
   font-size: 0.68rem;
   letter-spacing: 0.1em;
   color: var(--mist);
-  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(13, 17, 23, 0.62);
+  backdrop-filter: blur(6px);
 }
 
 .breadcrumb a {
@@ -721,7 +732,6 @@ button:focus-visible {
   line-height: 1.15;
   color: var(--cream);
   max-width: 800px;
-  margin-bottom: 0.75rem;
 }
 
 .engagement-event {
@@ -729,6 +739,17 @@ button:focus-visible {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--amber);
+}
+
+.engagement-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  color: var(--cream-dim);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 /* ─── Engagement Metadata (Hero Overlay) ───────────────────────── */
@@ -966,6 +987,10 @@ button:focus-visible {
 
   .engagement-hero-content {
     padding: 2rem 1.25rem;
+  }
+
+  .breadcrumb {
+    flex-wrap: wrap;
   }
 
   .slide-row,
