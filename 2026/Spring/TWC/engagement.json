@@ -6,7 +6,7 @@
   "venue": "TWC",
   "location": "San Mateo, CA",
   "date": "2026-03-25",
-  "collaborators": "Sarah Fama",
+  "collaborators": ["Sarah Fama"],
   "tags": [
     "accessibility",
     "text to speech",
