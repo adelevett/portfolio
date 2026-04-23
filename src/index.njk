@@ -1,22 +1,26 @@
 ---
 layout: base.njk
-title: Professional Development Log
+title: Events Log
 ---
 
 <section class="hero-banner">
   <div class="hero-inner">
-    <p class="hero-eyebrow mono">Follow the work</p>
-    <h1 class="hero-title">Professional<br><em>Development</em><br>Log</h1>
+    <p class="hero-eyebrow mono">Professional development archive</p>
+    <h1 class="hero-title">Events Log</h1>
+    <p class="hero-lead">A running record of talks, workshops, and accessibility sessions, organized by term and year.</p>
+    <div class="hero-actions">
+      <a href="#timeline" class="hero-jump mono">Jump to timeline</a>
+    </div>
     <div class="hero-stats">
       <div class="stat">
         <span class="stat-num">{{ engagements | length }}</span>
-        <span class="stat-label">talks &amp; workshops</span>
+        <span class="stat-label">events logged</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="timeline-section">
+<section class="timeline-section" id="timeline" aria-label="Event timeline">
   {% set grouped = engagements | groupByYearTerm %}
   {% for yearGroup in grouped %}
     <div class="year-group">
@@ -47,16 +51,19 @@ title: Professional Development Log
                     </div>
                   </div>
                   <div class="tcard-body">
-                    <p class="tcard-event mono">{{ e.event }}</p>
+                    <div class="tcard-meta">
+                      <p class="tcard-event mono">{{ e.event }}</p>
+                      <p class="tcard-date mono">
+                        <span class="date-icon" aria-hidden="true">◷</span>
+                        <span>{{ e.date | niceDate }}</span>
+                      </p>
+                    </div>
                     <h3 class="tcard-title">{{ e.title }}</h3>
                   </div>
                 </a>
 
                 <div class="timeline-dot-col">
                   <div class="timeline-dot"></div>
-                  <div class="tcard-date-badge mono">
-                    <span class="date-icon">◷</span>{{ e.date | niceDate }}
-                  </div>
                 </div>
 
                 <div class="timeline-blurb">

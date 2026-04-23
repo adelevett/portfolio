@@ -5,7 +5,7 @@ module.exports = async function () {
   // Walk the repo root looking for engagement.json files
   // Expected path: {year}/{Term}/{VENUE}/engagement.json
   const engagements = [];
-  const root = path.join(__dirname, "../../..");  // repo root
+  const root = path.resolve(__dirname, "../..");  // repo root
 
   function walk(dir, depth = 0) {
     if (depth > 4) return;
