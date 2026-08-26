@@ -4,6 +4,7 @@ const path = require("path");
 module.exports = function (eleventyConfig) {
   // Pass through CSS
   eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/img");
 
   // Auto-discover all year folders (2024/, 2025/, 2026/ etc.)
   fs.readdirSync(path.resolve("."))
@@ -20,35 +21,21 @@ module.exports = function (eleventyConfig) {
     });
   });
 
-  // Filter: group engagements by year then term
-  eleventyConfig.addFilter("groupByYearTerm", (engagements) => {
+  // Collection: section content pages (src/sections/**/*.md), grouped by
+  // their `section` front matter and sorted by `order`. Drives nav dropdowns,
+  // section landing page listings, and the home page section cards.
+  eleventyConfig.addCollection("sectionPages", function (collectionApi) {
     const grouped = {};
-    for (const e of engagements) {
-      const y = e.year;
-      const t = e.term;
-      if (!grouped[y]) grouped[y] = {};
-      if (!grouped[y][t]) grouped[y][t] = [];
-      grouped[y][t].push(e);
-    }
-
-    // Convert to sorted array for Nunjucks iteration order
-    const result = Object.keys(grouped)
-      .sort((a, b) => b - a) // Years descending
-      .map(year => {
-        const termsMap = { "Fall": 2, "Spring": 1 };
-        const terms = Object.keys(grouped[year])
-          .sort((a, b) => (termsMap[b] || 0) - (termsMap[a] || 0)) // Fall before Spring
-          .map(term => ({
-            name: term,
-            items: grouped[year][term]
-          }));
-        return {
-          year: year,
-          terms: terms
-        };
+    collectionApi.getFilteredByGlob("src/sections/**/*.md")
+      .filter(p => p.data.section)
+      .sort((a, b) =>
+        (a.data.order ?? 99) - (b.data.order ?? 99) ||
+        (a.data.title || "").localeCompare(b.data.title || "")
+      )
+      .forEach(p => {
+        (grouped[p.data.section] = grouped[p.data.section] || []).push(p);
       });
-
-    return result;
+    return grouped;
   });
 
   // Filter: build asset URL

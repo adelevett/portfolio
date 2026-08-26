@@ -1,0 +1,17 @@
+---
+layout: base.njk
+---
+
+<article class="content-page">
+  <header class="page-hero">
+    <div>
+      {% set sectionTitle = section %}
+      {% for item in nav %}{% if item.section == section %}{% set sectionTitle = item.title %}{% endif %}{% endfor %}
+      <p class="eyebrow"><a class="eyebrow-link" href="{{ ('/' + section + '/') | url }}">{{ sectionTitle }}</a></p>
+      <h1>{{ title }}</h1>
+    </div>
+  </header>
+  <div class="content-body">
+    {{ content | safe }}
+  </div>
+</article>

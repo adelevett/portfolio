@@ -1,0 +1,34 @@
+---
+layout: base.njk
+---
+
+<article class="content-page">
+  <header class="page-hero">
+    <div>
+      <h1>{{ title }}</h1>
+      {% if description %}<p>{{ description }}</p>{% endif %}
+    </div>
+  </header>
+
+  <div class="content-body">
+    {{ content | safe }}
+  </div>
+
+  {% set pages = collections.sectionPages[section] %}
+  {% set subpages = [] %}
+  {% for p in pages %}{% if p.url != page.url %}{% set subpages = (subpages.push(p), subpages) %}{% endif %}{% endfor %}
+  {% if subpages.length %}
+  <nav class="section-index" aria-label="Related pages">
+    <ul class="section-index-list">
+      {% for p in subpages %}
+      <li>
+        <a href="{{ p.url | url }}" class="section-index-card">
+          <h2>{{ p.data.title }}</h2>
+          {% if p.data.description %}<p>{{ p.data.description }}</p>{% endif %}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+  {% endif %}
+</article>

@@ -1,0 +1,14 @@
+---
+description: Run deterministic anti-slop design/prose checks when editing UI or copy
+globs: src/**/*.{njk,css,html,md,js}
+alwaysApply: false
+---
+
+# Anti-slop checks
+
+When changing matching files, follow `.cursor/skills/anti-slop/SKILL.md`.
+
+Prefer MCP tools `ux_lint` / `check_ai_slop` / `grade_landing_copy` when those servers are connected. Fall back to:
+
+- `.tools/venv/bin/uxskill lint src`
+- `npx -y impeccable@3.6.0 detect src/`

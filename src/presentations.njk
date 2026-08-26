@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: Workshops & Presentations
+description: Workshops and presentations on accessibility, adapted technology, and learning.
+permalink: /presentations/
+section: presentations
+---
+
+<section class="page-hero">
+  <div>
+    <h1>Workshops &amp; Presentations</h1>
+    <p>Sessions on adapted technology, accessible media, study workflows, and emerging tools.</p>
+  </div>
+</section>
+<section class="collection-section" aria-label="All presentations">
+  <div class="collection-grid">
+    {% for e in engagements %}
+    <a href="{{ ('/' + e.slug + '/') | url }}" class="collection-card">
+      <div class="collection-image">{% if e.thumb %}<img src="{{ (e | assetUrl(e.thumb)) | url }}" alt="" loading="lazy">{% endif %}</div>
+      <div class="collection-copy">
+        <p class="project-meta">{{ e.date | niceDate }} · {{ e.location }}</p>
+        <h2>{{ e.title }}</h2>
+        <p>{{ e.blurb }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>

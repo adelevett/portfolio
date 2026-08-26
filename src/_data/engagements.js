@@ -44,9 +44,13 @@ module.exports = async function () {
           data.term = data.term || parts[1];
           data.venue = data.venue || parts[2];
           data.collaborators = normalizeStringList(data.collaborators);
+          // Any PDF sitting next to engagement.json counts as a downloadable
+          // deck, whatever it is named.
+          const dirFiles = fs.readdirSync(path.dirname(full));
+          data.pdfFile = dirFiles.find(f => f.toLowerCase().endsWith(".pdf")) || null;
           engagements.push(data);
-        } catch (e) {
-          console.warn("Could not parse", full, e.message);
+        } catch {
+          // Skip unreadable engagement.json files during discovery.
         }
       }
     }
@@ -55,9 +59,6 @@ module.exports = async function () {
   walk(root);
   // Sort newest first
   engagements.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
-
-  // Add global index for alternating layout across year/term boundaries
-  engagements.forEach((e, i) => e.globalIndex = i);
 
   return engagements;
 };

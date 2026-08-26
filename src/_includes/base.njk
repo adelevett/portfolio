@@ -3,16 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title or "Professional Development" }} — Portfolio</title>
+  <meta name="description" content="{{ description or 'The professional portfolio of Alexis Delevett, Adapted Technology Specialist at College of San Mateo.' }}">
+  <title>{{ title or "Alexis Delevett" }} — Professional Portfolio</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ title or 'Alexis Delevett' }} — Professional Portfolio">
+  <meta property="og:description" content="{{ description or 'Adapted technology, access, learning, and professional practice at College of San Mateo.' }}">
+  <meta property="og:image" content="https://adelevett.github.io/portfolio/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title or 'Alexis Delevett' }} — Professional Portfolio">
+  <meta name="twitter:description" content="{{ description or 'Adapted technology, access, learning, and professional practice at College of San Mateo.' }}">
+  <meta name="twitter:image" content="https://adelevett.github.io/portfolio/img/og.png">
   <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to content</a>
   <header class="site-header">
-    <nav class="site-nav" aria-label="Primary">
-      <a href="{{ '/' | url }}" class="site-nav-link{% if page.url == '/' %} is-current{% endif %}"{% if page.url == '/' %} aria-current="page"{% endif %}>Portfolio</a>
-      <span class="site-nav-divider" aria-hidden="true">|</span>
-      <a href="{{ '/about/' | url }}" class="site-nav-link{% if page.url == '/about/' %} is-current{% endif %}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="{{ '/' | url }}" class="site-brand"><span class="site-brand-name">Alexis Delevett</span><span class="site-brand-role">Professional Portfolio</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+      <ul class="nav-menu" id="nav-menu">
+        {% for item in nav %}
+          {% set itemUrl = item.url or ('/' + item.section + '/') %}
+          {% set pages = collections.sectionPages[item.section] %}
+          {% set isCurrent = page.url == itemUrl or (item.section and section == item.section) %}
+          <li class="nav-item{% if pages and pages.length > 1 %} has-children{% endif %}">
+            <a href="{{ itemUrl | url }}"{% if isCurrent %} aria-current="page"{% endif %}>{{ item.title }}</a>
+            {% if pages and pages.length > 1 %}
+            <button class="submenu-toggle" aria-expanded="false" aria-label="Toggle {{ item.title }} submenu"><span aria-hidden="true">▾</span></button>
+            <ul class="submenu">
+              {% for p in pages %}{% if p.url != itemUrl %}
+              <li><a href="{{ p.url | url }}"{% if page.url == p.url %} aria-current="page"{% endif %}>{{ p.data.title }}</a></li>
+              {% endif %}{% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
     </nav>
   </header>
 
@@ -21,7 +47,50 @@
   </main>
 
   <footer class="site-footer">
-    <span class="mono">Built with Typst + Eleventy</span>
+    <p><strong>Alexis Delevett</strong> · Adapted Technology Specialist</p>
+    <p>College of San Mateo Disability Resource Center</p>
   </footer>
+
+  <script>
+    (function () {
+      var navToggle = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('nav-menu');
+
+      navToggle.addEventListener('click', function () {
+        var open = menu.classList.toggle('is-open');
+        navToggle.setAttribute('aria-expanded', String(open));
+      });
+
+      document.querySelectorAll('.submenu-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var item = btn.closest('.nav-item');
+          var open = item.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', String(open));
+        });
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        document.querySelectorAll('.nav-item.is-open').forEach(function (item) {
+          item.classList.remove('is-open');
+          item.querySelector('.submenu-toggle').setAttribute('aria-expanded', 'false');
+        });
+        if (menu.classList.contains('is-open')) {
+          menu.classList.remove('is-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close dropdowns when focus leaves the nav entirely
+      document.querySelector('.site-nav').addEventListener('focusout', function (e) {
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          document.querySelectorAll('.nav-item.is-open').forEach(function (item) {
+            item.classList.remove('is-open');
+            item.querySelector('.submenu-toggle').setAttribute('aria-expanded', 'false');
+          });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

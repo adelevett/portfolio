@@ -5,6 +5,7 @@ pagination:
   alias: e
 permalink: "/{{ e.slug }}/"
 layout: base.njk
+section: presentations
 ---
 
 <article class="engagement-page">
@@ -20,7 +21,7 @@ layout: base.njk
             <span>{{ e.location }}</span>
           </p>
           <div class="breadcrumb mono">
-            <a href="{{ '/' | url }}">Portfolio</a>
+            <a href="{{ '/presentations/' | url }}">Workshops &amp; Presentations</a>
             <span aria-hidden="true">›</span>
             <span>{{ e.year }}</span>
             <span aria-hidden="true">›</span>
@@ -58,12 +59,12 @@ layout: base.njk
             </div>
           </dl>
 
-          <div class="pdf-download">
-            <a href="{{ ('/assets/' + e.year + '/' + e.term + '/' + e.venue + '/slides.pdf') | url }}" class="pdf-btn" download>
+          {% if e.pdfFile %}<div class="pdf-download">
+            <a href="{{ ('/assets/' + e.year + '/' + e.term + '/' + e.venue + '/' + e.pdfFile) | url }}" class="pdf-btn" download>
               <span class="pdf-icon">⬇</span>
               <span>Slides (PDF)</span>
             </a>
-          </div>
+          </div>{% endif %}
         </aside>
       </div>
     </div>
