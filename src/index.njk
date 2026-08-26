@@ -1,73 +1,51 @@
 ---
 layout: base.njk
-title: Professional Development Log
+title: Home
+description: Portfolio of Alexis Delevett, Adapted Technology Specialist at College of San Mateo.
 ---
 
-<section class="hero-banner">
-  <div class="hero-inner">
-    <p class="hero-eyebrow mono">Follow the work</p>
-    <h1 class="hero-title">Professional<br><em>Development</em><br>Log</h1>
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-num">{{ engagements | length }}</span>
-        <span class="stat-label">talks &amp; workshops</span>
-      </div>
+<section class="portfolio-hero">
+  <div class="portfolio-hero-inner">
+    <div class="hero-copy">
+      <h1>Alexis Delevett</h1>
+      <p class="hero-intro">Welcome. Thank you for visiting my portfolio. I'm the Adapted Technology Specialist at the College of San Mateo Disability Resource Center, and I'm glad to share my work with you.</p>
     </div>
   </div>
 </section>
 
-<section class="timeline-section">
-  {% set grouped = engagements | groupByYearTerm %}
-  {% for yearGroup in grouped %}
-    <div class="year-group">
-      <div class="year-label">
-        <span class="mono year-num">{{ yearGroup.year }}</span>
-        <div class="year-line"></div>
-      </div>
-
-      {% for termGroup in yearGroup.terms %}
-        <div class="term-group">
-          <h2 class="term-heading mono">{{ termGroup.name }}</h2>
-
-          <div class="timeline">
-            <div class="timeline-spine"></div>
-            {% for e in termGroup.items %}
-              {%- set side = "left" if e.globalIndex % 2 == 0 else "right" -%}
-              <div class="timeline-row timeline-row--{{ side }}">
-
-                <a href="{{ ('/' + e.slug + '/') | url }}" class="timeline-card">
-                  <div class="tcard-image">
-                    {% if e.thumb %}
-                      <img src="{{ (e | assetUrl(e.thumb)) | url }}" alt="{{ e.title }}" loading="lazy">
-                    {% else %}
-                      <div class="tcard-image-placeholder mono">{{ e.venue }}</div>
-                    {% endif %}
-                    <div class="tcard-location mono">
-                      <span class="badge-dot"></span>{{ e.location }}
-                    </div>
-                  </div>
-                  <div class="tcard-body">
-                    <p class="tcard-event mono">{{ e.event }}</p>
-                    <h3 class="tcard-title">{{ e.title }}</h3>
-                  </div>
-                </a>
-
-                <div class="timeline-dot-col">
-                  <div class="timeline-dot"></div>
-                  <div class="tcard-date-badge mono">
-                    <span class="date-icon">◷</span>{{ e.date | niceDate }}
-                  </div>
-                </div>
-
-                <div class="timeline-blurb">
-                  <p>{{ e.blurb }}</p>
-                </div>
-              </div>
-            {% endfor %}
-          </div>
-
-        </div>
-      {% endfor %}
-    </div>
-  {% endfor %}
+<section class="work-section" id="sections" aria-labelledby="sections-title">
+  <h2 id="sections-title" class="visually-hidden">Sections</h2>
+  <div class="area-grid">
+    {% for item in nav %}{% if item.section %}
+      {% set itemUrl = item.url or ('/' + item.section + '/') %}
+      {% set pages = collections.sectionPages[item.section] %}
+      {% set landingDescription = '' %}
+      {% for p in pages %}{% if p.url == itemUrl %}{% set landingDescription = p.data.description %}{% endif %}{% endfor %}
+      {% if not landingDescription and item.blurb %}{% set landingDescription = item.blurb %}{% endif %}
+      <a href="{{ itemUrl | url }}" class="area-card">
+        <h3>{{ item.title }}</h3>
+        {% if landingDescription %}<p>{{ landingDescription }}</p>{% endif %}
+      </a>
+    {% endif %}{% endfor %}
+  </div>
 </section>
+
+{% if engagements.length %}
+<section class="featured-section" id="presentations" aria-labelledby="presentations-title">
+  <div class="section-heading">
+    <h2 id="presentations-title">Workshops &amp; Presentations</h2>
+  </div>
+  <div class="project-grid">
+    {% for e in engagements %}{% if loop.index <= 3 %}
+    <a href="{{ ('/' + e.slug + '/') | url }}" class="project-card">
+      <div class="project-image">{% if e.thumb %}<img src="{{ (e | assetUrl(e.thumb)) | url }}" alt="" loading="lazy">{% endif %}</div>
+      <div class="project-body">
+        <p class="project-meta">{{ e.event }} · {{ e.date | niceDate }}</p>
+        <h3>{{ e.title }}</h3>
+      </div>
+    </a>
+    {% endif %}{% endfor %}
+  </div>
+  <p class="section-more"><a href="{{ '/presentations/' | url }}" class="text-link">All workshops and presentations <span aria-hidden="true">→</span></a></p>
+</section>
+{% endif %}

@@ -2,3 +2,12 @@ node_modules/
 _site/
 .DS_Store
 .env
+out.csv
+
+# Anti-slop MCP local runtime (recreate via scripts/setup-anti-slop-mcp.sh)
+.tools/venv/
+.tools/ux-skill/
+.ux/
+
+# Private working notes
+CONTENT-INVENTORY.md

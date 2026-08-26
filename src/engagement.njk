@@ -5,6 +5,7 @@ pagination:
   alias: e
 permalink: "/{{ e.slug }}/"
 layout: base.njk
+section: presentations
 ---
 
 <article class="engagement-page">
@@ -13,15 +14,19 @@ layout: base.njk
     <div class="engagement-hero-overlay">
       <div class="engagement-hero-content">
         <div class="hero-left">
-          <div class="breadcrumb mono">
-            <a href="{{ '/' | url }}">Portfolio</a>
-            <span>›</span>
-            <span>{{ e.year }}</span>
-            <span>›</span>
-            <span>{{ e.term }}</span>
-          </div>
           <h1 class="engagement-title">{{ e.title }}</h1>
           <p class="engagement-event mono">{{ e.event }}</p>
+          <p class="engagement-location mono">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span>{{ e.location }}</span>
+          </p>
+          <div class="breadcrumb mono">
+            <a href="{{ '/presentations/' | url }}">Workshops &amp; Presentations</a>
+            <span aria-hidden="true">›</span>
+            <span>{{ e.year }}</span>
+            <span aria-hidden="true">›</span>
+            <span>{{ e.term }}</span>
+          </div>
         </div>
 
         <aside class="engagement-meta">
@@ -33,10 +38,6 @@ layout: base.njk
             <div class="meta-item">
               <dt class="mono">Location</dt>
               <dd>{{ e.location }}</dd>
-            </div>
-            <div class="meta-item">
-              <dt class="mono">Venue</dt>
-              <dd>{{ e.venue }}</dd>
             </div>
             {% if e.collaborators and e.collaborators.length %}
             <div class="meta-item">
@@ -58,12 +59,12 @@ layout: base.njk
             </div>
           </dl>
 
-          <div class="pdf-download">
-            <a href="{{ ('/assets/' + e.year + '/' + e.term + '/' + e.venue + '/slides.pdf') | url }}" class="pdf-btn" download>
+          {% if e.pdfFile %}<div class="pdf-download">
+            <a href="{{ ('/assets/' + e.year + '/' + e.term + '/' + e.venue + '/' + e.pdfFile) | url }}" class="pdf-btn" download>
               <span class="pdf-icon">⬇</span>
               <span>Slides (PDF)</span>
             </a>
-          </div>
+          </div>{% endif %}
         </aside>
       </div>
     </div>
