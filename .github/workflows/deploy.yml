@@ -2,7 +2,7 @@ name: Build and Deploy Portfolio
 
 on:
   push:
-    branches: [codex]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
