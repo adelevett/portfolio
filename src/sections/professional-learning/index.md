@@ -1,9 +1,21 @@
 ---
 layout: section.njk
-title: Professional Learning
-section: professional-learning
+title: Professional Development
+section: professional-development
 order: 0
-description: Conferences, workshops, and inquiry that shape day-to-day practice.
+description: Conferences and convenings that shape day-to-day practice.
 ---
 
-Courses, conferences, and communities of practice that inform how I support students and faculty.
+Conferences and professional convenings that inform how I support students and faculty.
+
+## CSUN Assistive Technology Conference (2026)
+
+Attended the 41st CSUN Assistive Technology Conference with professional development support. Sessions on assistive technology, accessible media, and emerging tools informed student-support workflows used on campus.
+
+## CAPED 2025
+
+Professional exchange around assistive technology, disability services, and the future of offline intelligence — paired with the conference presentation [Head in the Cloud?](/2025/fall/caped/).
+
+## Flex Days
+
+Regular Flex Day participation and facilitation, including sessions such as [Accessibility Features 101](/2026/spring/twc/).

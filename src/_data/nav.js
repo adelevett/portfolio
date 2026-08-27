@@ -7,5 +7,5 @@ module.exports = [
   { title: "Faculty Partnership", section: "faculty-partnership" },
   { title: "Workshops & Presentations", url: "/presentations/", section: "presentations", blurb: "Workshops and conference sessions on accessibility, adapted technology, and learning." },
   { title: "Service", section: "service" },
-  { title: "Professional Learning", section: "professional-learning" }
+  { title: "Professional Development", section: "professional-development" }
 ];

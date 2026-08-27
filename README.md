@@ -5,12 +5,12 @@ Eleventy portfolio for Adapted Technology work at College of San Mateo.
 ## Browse
 
 - Home — welcome and section links
-- About — role, philosophy, CV, self-assessment
+- About — role and teaching philosophy
 - Student Support — adapted technology, alternate media
 - Faculty Partnership — accessibility reviews and consults
 - Workshops & Presentations — engagement archive
 - Service — committees and collaboration
-- Professional Learning — conferences and inquiry
+- Professional Development — conferences and convenings
 
 ## Add a page
 
