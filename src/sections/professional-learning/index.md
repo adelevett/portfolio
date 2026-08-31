@@ -3,7 +3,7 @@ layout: section.njk
 title: Professional Development
 section: professional-development
 order: 0
-description: Conference attendance and presentations.
+description: Conferences and Flex Day activities.
 ---
 
 ## CSUN Assistive Technology Conference 2026
