@@ -1,24 +1,13 @@
 ---
 layout: section.njk
-title: Faculty Partnership
-section: faculty-partnership
+title: Campus Partnership
+section: campus-partnership
 order: 0
-description: Consultation on accessible documents, course media, classroom technology, and accommodation workflows.
+description: Campus-wide collaborations.
 ---
 
-I collaborate with faculty to turn accessibility questions into workable next steps — from reviewing a course file to discussing audio-recorded lectures or demonstrating everyday accessibility features.
+I collaborate with faculty and staff to raise awareness about assistive technologies and the importance of accessible learning materials.
 
-## Accessibility reviews of course materials
+In doing so, I am fortunate to count on the support across campus from the learning technologies, learning support and library teams at CSM.
 
-I conduct structured accessibility reviews of course content — for example, reviewing materials for multi-course sequences such as FILM 100 and FILM 200 through the DRC's accessibility review referral process — and return concrete, prioritized fixes faculty can act on.
-
-## Consultation on classroom practice
-
-- Note-taking accommodations, audio-recorded lectures, and the tools students may use to engage with course content
-- Accessible document creation and remediation for syllabi, handouts, and slides
-- Everyday device accessibility features that help the whole class, not only students with accommodations
-- Accessibility language for course and enrollment materials, including contributions to OpenCCC-facing guidance
-
-## Workshops and resource sharing
-
-Faculty partnership also includes Flex Day workshops, cross-campus offerings, and informal resource sharing: flyers, tip sheets, and one-page guides faculty can keep. Documented sessions are listed under [Workshops & Presentations](/presentations/).
+Campus partnerships have extended to regular contributions at the Learning Center, standalone workshops at the Writing Center and regular outreach during Flex Days. [Workshops & Presentations](/presentations/).
