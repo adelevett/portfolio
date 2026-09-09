@@ -10,4 +10,4 @@ I am privileged to work with an awesome team at the DRC and am eager to contribu
 
 ## Committee assignments
 
-I participate in the DRC Scholarship Committee reviewing student eligibility and submissions for award consideration. In addition, I participate in the distance education advisory committe (DEAC) to stay abreast of developments impacting digital accessibility on campus.
+I participate in the DRC Scholarship Committee reviewing student eligibility and submissions for award consideration. In addition, I participate in the distance education advisory committee (DEAC) to stay abreast of developments impacting digital accessibility on campus.
