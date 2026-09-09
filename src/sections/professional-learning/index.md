@@ -10,7 +10,7 @@ description: Conferences and Flex Day activities.
 
 Attended the 41st CSUN Assistive Technology Conference sessions on assistive technology, accessible media, and emerging tools to inform my outreach and student support.
 
-## Network of Assitive Technologists (NOAT) 2025
+## Network of Assistive Technologists (NOAT) 2025
 
 Participated in NOAT 2025 by contributing a presentation on AI-assisted alternate media workflows [AI assisted workflows](/2026/spring/noat/)
 
