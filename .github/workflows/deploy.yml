@@ -36,6 +36,7 @@ jobs:
       # For every slides.typ found, run typst query + compile + rasterise featured slides
       - name: Process engagements
         run: |
+          sudo apt-get update
           sudo apt-get install -y poppler-utils jq
 
           find . -name "slides.typ" \
