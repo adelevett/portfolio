@@ -12,7 +12,9 @@ If I had to try and put this approach into a teaching philosophy, I think it's f
 
 As Adapted Technology Specialist I hope to contribute to a nuanced discussion of mediated assistance in service of access and participation by listening to students, faculty and staff alike and working to come to a shared understanding on an individual basis.
 
+---
+
 <figure>
-  <img src="../../img/IMG_3515.jpg" alt="" loading="lazy" width="800" height="600">
+  <img src="{{ '/img/IMG_3515.jpg' | url }}" alt="" loading="lazy" style="max-width: 80%; height: auto;">
   <figcaption>Pictured with my wife Amy and the San Francisco Skyline in the background</figcaption>
 </figure>
