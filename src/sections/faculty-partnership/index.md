@@ -10,4 +10,4 @@ I collaborate with faculty and staff to raise awareness about assistive technolo
 
 In doing so, I am fortunate to count on the support across campus from the learning technologies, learning support and library teams at CSM.
 
-Campus partnerships have extended to regular contributions at the Learning Center, standalone workshops at the Writing Center and regular outreach during Flex Days. [Workshops & Presentations](/presentations/).
+Campus partnerships have extended to ongoing contributions at the Learning Center, standalone workshops at the Writing Center and regular outreach during Flex Days. [Workshops & Presentations](/presentations/).
