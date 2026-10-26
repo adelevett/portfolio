@@ -15,6 +15,9 @@ As Adapted Technology Specialist I hope to contribute to a nuanced discussion of
 ---
 
 <figure>
-  <img src="{{ '/img/IMG_3515.jpg' | url }}" alt="" loading="lazy" style="max-width: 80%; height: auto;">
+  <img src="{{ '/img/IMG_3515.jpg' | url }}" alt="" loading="lazy" style="  display: block;
+  max-width: 80%;
+  height: auto;
+  margin: 0 auto;">
   <figcaption>Pictured with my wife Amy and the San Francisco Skyline in the background</figcaption>
 </figure>
