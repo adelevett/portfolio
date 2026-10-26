@@ -1,4 +1,4 @@
-# Alexis Delevett — Professional Portfolio
+# Alexis Delevett — Portfolio
 
 Eleventy portfolio for Adapted Technology work at College of San Mateo.
 

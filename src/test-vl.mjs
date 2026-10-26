@@ -35,7 +35,7 @@ const GROUNDED_TEST_CASE = {
 };
 
 function buildFeaturedSlidesPrompt(maxFeatured) {
-  return `You are helping build a professional portfolio for an accessibility educator.
+  return `You are helping build a portfolio for an accessibility educator.
 You will be shown all slides from a presentation deck. Your task:
 1. Choose ${maxFeatured} slide${maxFeatured === 1 ? "" : "s"} that best illustrate the talk's key ideas for a portfolio reader.
 2. For each chosen slide, write a 2-sentence note explaining the core idea and why it matters.
