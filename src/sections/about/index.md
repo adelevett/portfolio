@@ -11,3 +11,8 @@ As the Adapted Technology Specialist at CSM, I provide students with access to t
 If I had to try and put this approach into a teaching philosophy, I think it's fair to say that I believe that "access comes first". This is especially relevant in the context of technology use in classrooms today. Assistive technologies have long relied on decoding diverse media and interfaces as part of disability-specific machine translation and have embraced the new possibilities from greater data availability leading to more generalized capabilities. On the other hand, educators are protective of pedagogy's central role in fostering critical reflection among students and are questioning the technologies-as-assistants framing associated with the latest generation of machine intelligence.
 
 As Adapted Technology Specialist I hope to contribute to a nuanced discussion of mediated assistance in service of access and participation by listening to students, faculty and staff alike and working to come to a shared understanding on an individual basis.
+
+<figure>
+  <img src="../../img/IMG_3515.jpg" alt="" loading="lazy" width="800" height="600">
+  <figcaption>Pictured with my wife Amy and the San Francisco Skyline in the background</figcaption>
+</figure>
