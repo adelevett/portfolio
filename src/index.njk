@@ -4,12 +4,16 @@ title: Home
 description: Portfolio of Alexis Delevett, Adapted Technology Specialist at College of San Mateo.
 ---
 
-<section class="portfolio-hero">
-  <div class="portfolio-hero-inner">
-    <div class="hero-copy">
-      <h1>Alexis Delevett</h1>
+<section class="welcome-section" id="welcome" aria-labelledby="welcome-title">
+  <div class="welcome-inner">
+    <div class="welcome-copy">
+      <h1 id="welcome-title">Alexis Delevett</h1>
       <p class="hero-intro">Welcome. Thank you for visiting my portfolio. I'm the Adapted Technology Specialist at the College of San Mateo Disability Resource Center, and I'm glad to share my work with you.</p>
     </div>
+    <video class="welcome-video" controls preload="metadata" playsinline>
+      <source src="{{ '/img/welcome.mp4' | url }}" type="video/mp4">
+      <track kind="captions" src="{{ '/img/welcome.vtt' | url }}" srclang="en" label="English" default>
+    </video>
   </div>
 </section>
 
@@ -29,23 +33,3 @@ description: Portfolio of Alexis Delevett, Adapted Technology Specialist at Coll
     {% endif %}{% endfor %}
   </div>
 </section>
-
-{% if engagements.length %}
-<section class="featured-section" id="presentations" aria-labelledby="presentations-title">
-  <div class="section-heading">
-    <h2 id="presentations-title">Workshops &amp; Presentations</h2>
-  </div>
-  <div class="project-grid">
-    {% for e in engagements %}{% if loop.index <= 3 %}
-    <a href="{{ ('/' + e.slug + '/') | url }}" class="project-card">
-      <div class="project-image">{% if e.thumb %}<img src="{{ (e | assetUrl(e.thumb)) | url }}" alt="" loading="lazy">{% endif %}</div>
-      <div class="project-body">
-        <p class="project-meta">{{ e.event }} · {{ e.date | niceDate }}</p>
-        <h3>{{ e.title }}</h3>
-      </div>
-    </a>
-    {% endif %}{% endfor %}
-  </div>
-  <p class="section-more"><a href="{{ '/presentations/' | url }}" class="text-link">All workshops and presentations <span aria-hidden="true">→</span></a></p>
-</section>
-{% endif %}
