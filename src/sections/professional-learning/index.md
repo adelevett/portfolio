@@ -4,9 +4,18 @@ title: Professional Development
 section: professional-development
 order: 0
 description: Conferences and Flex Day activities.
+toc:
+  - label: CSUN Assistive Technology Conference 2026
+    href: "#csun-2026"
+  - label: Network of Assistive Technologists (NOAT) 2025
+    href: "#noat-2025"
+  - label: California Association for Postsecondary Education and Disability (CAPED) 2025
+    href: "#caped-2025"
+  - label: Flex Days
+    href: "#flex-days"
 ---
 
-## CSUN Assistive Technology Conference 2026
+<h2 id="csun-2026">CSUN Assistive Technology Conference 2026</h2>
 
 Attended the 41st CSUN Assistive Technology Conference sessions on assistive technology, accessible media, and emerging tools to inform my outreach and student support. Sessions I attended included:
 
@@ -32,11 +41,11 @@ Attended the 41st CSUN Assistive Technology Conference sessions on assistive tec
 
 - AI as an Accessibility Assistant: A Low-Vision Pipeline for STEM (Presenter: Wayne Dick). This session examined why STEM knowledge, though born digital, remains inaccessible to people with low vision—identifying the PDF as the culprit, since it treats whitespace as invisible and breaks reflow as words run together—and demonstrated transforming PDFs into a reflow-safe format. The pipeline offers a promising path toward making STEM materials genuinely usable for our students with low vision.
 
-## Network of Assistive Technologists (NOAT) 2025
+<h2 id="noat-2025">Network of Assistive Technologists (NOAT) 2025</h2>
 
 Participated in NOAT 2025 by contributing a presentation on AI-assisted alternate media workflows [AI assisted workflows](/2026/spring/noat/). The session I attended introduced Inspiration 11, Mind Mapping and Graphic Organizers as a visual thinking tool for for graphically representing notes in support of diverse learners.
 
-## California Association for Postsecondary Education and Disability (CAPED) 2025
+<h2 id="caped-2025">California Association for Postsecondary Education and Disability (CAPED) 2025</h2>
 
 Participated in CAPED 2025 by contributing a presentation on artificial intelligence as it relates to assistive technology and alternate media services [Head in the Cloud?](/2025/fall/caped/). Sessions I attended addressed building a professional community, developing disability identity for student success, statewide accessibility
 resources, and the impact of artificial intelligence (AI) on equity in education.
@@ -51,7 +60,7 @@ resources, and the impact of artificial intelligence (AI) on equity in education
 
 - Ethical AI Implementation - for Neurodivergent Student Success in Higher Education (Presenters: Bianca Hernandez and Cristina Montejano). This session explored frameworks for responsibly integrating AI into higher education, centering neurodivergent students’ experiences. The emphasis on bias, privacy, and authentic assessment connects directly to the college community's efforts to grapple with the role of AI in education. 
 
-## Flex Days
+<h2 id="flex-days">Flex Days</h2>
 
 Regular Flex Day presentations, including a recent session on [Accessibility Features 101](/2026/spring/twc/). Sessions I attended include:
 

@@ -315,8 +315,27 @@ a:hover { color: var(--coral); }
 .page-hero h1 { font-size: 2.2rem; margin: 0.2rem 0 0.6rem; max-width: 44rem; }
 .page-hero p { color: var(--muted); font-size: 1.05rem; max-width: 42rem; margin: 0; }
 
+.toc { margin-top: 1.25rem; }
+.toc ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+.toc a {
+  color: var(--teal);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.toc a:hover { border-bottom-color: var(--teal); }
+
 .content-body { max-width: 42rem; }
-.content-body h2 { font-size: 1.45rem; margin: 2.2rem 0 0.6rem; }
+.content-body h2 { font-size: 1.45rem; margin: 2.2rem 0 0.6rem; scroll-margin-top: 5rem; }
+.back-to-top {
+  float: right;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+}
+.back-to-top:hover { color: var(--teal); }
 .content-body h3 { font-size: 1.1rem; margin: 1.8rem 0 0.4rem; }
 .content-body p, .content-body li { font-size: 1.02rem; }
 .content-body ul { padding-left: 1.3rem; }

@@ -3,10 +3,19 @@ layout: base.njk
 ---
 
 <article class="content-page">
-  <header class="page-hero">
+  <header class="page-hero" id="page-top">
     <div>
       <h1>{{ title }}</h1>
       {% if description %}<p>{{ description }}</p>{% endif %}
+      {% if toc %}
+      <nav class="toc" aria-label="On this page">
+        <ul>
+          {% for item in toc %}
+          <li><a href="{{ item.href }}">{{ item.label }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+      {% endif %}
     </div>
   </header>
 

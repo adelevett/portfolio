@@ -65,6 +65,17 @@ module.exports = function (eleventyConfig) {
     };
   });
 
+  // Add a "back to top" link inside every anchored <h2> so long section
+  // pages let readers jump back to the page-level table of contents.
+  eleventyConfig.addTransform("backToTopLinks", (content) => {
+    if (!content.includes('<h2 id="')) return content;
+    return content.replace(
+      /(<h2 id="[^"]*">)([\s\S]*?)(<\/h2>)/g,
+      (_m, open, inner, close) =>
+        `${open}${inner}<a class="back-to-top" href="#page-top" aria-label="Back to top">&#8593; Top</a>${close}`
+    );
+  });
+
   // Filter: build asset URL
   // assetPath is relative to the engagement folder e.g. "assets/foo.png" or "slides/page-03.png"
   eleventyConfig.addFilter("assetUrl", (engagement, assetPath) => {
