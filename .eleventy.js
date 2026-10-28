@@ -38,6 +38,33 @@ module.exports = function (eleventyConfig) {
     return grouped;
   });
 
+  // Markdown links are written from the site root (`/presentations/`).
+  // Nunjucks already runs those through the `url` filter; markdown does not,
+  // so on GitHub Pages they skip the `/portfolio/` prefix.
+  eleventyConfig.amendLibrary("md", (mdLib) => {
+    const url = eleventyConfig.getFilter("url");
+    const prefix = url("/");
+    const render =
+      mdLib.renderer.rules.link_open ||
+      function (tokens, idx, options, env, self) {
+        return self.renderToken(tokens, idx, options);
+      };
+
+    mdLib.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+      const token = tokens[idx];
+      const hrefIndex = token.attrIndex("href");
+      if (hrefIndex >= 0) {
+        const href = token.attrs[hrefIndex][1];
+        const alreadyPrefixed =
+          href === prefix.replace(/\/$/, "") || href.startsWith(prefix);
+        if (href.startsWith("/") && !href.startsWith("//") && !alreadyPrefixed) {
+          token.attrs[hrefIndex][1] = url(href);
+        }
+      }
+      return render(tokens, idx, options, env, self);
+    };
+  });
+
   // Filter: build asset URL
   // assetPath is relative to the engagement folder e.g. "assets/foo.png" or "slides/page-03.png"
   eleventyConfig.addFilter("assetUrl", (engagement, assetPath) => {
