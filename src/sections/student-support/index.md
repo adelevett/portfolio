@@ -23,7 +23,3 @@ Students with qualifying print disabilities may receive learning materials in al
 - Student training and orientation: Working one-on-one or in group settings when possible I introduce students to available technologies and support them as they familiarize themselves with the functionality
 - Collaboration with Alt Media Specialist: Request tracking and follow-ups as well as special case handling for unusual formats or accommodation needs
 - Campus outreach and coordination: Working with campus Bookstore and OER teams to encourage faculty to submit timely textbook adoption paperwork and consider accessibility implications of their instructional materials
-
-### Working with faculty
-
-Faculty share a responsibility in ensuring classroom materials are accessible and making information about required learning materials available for review in the CSM Bookstore's dashboard. In addition, academic integrity and developmental concerns may shape instructors' attitudes toward technology in a way that can benefit from information about assistive technology in the context of disability access. To this end, I participate in regular flex days activities and office hours to collaborate with fellow educators on how to equitably reconcile student and faculty rights.
