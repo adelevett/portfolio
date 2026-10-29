@@ -5,7 +5,7 @@ section: campus-partnership
 order: 0
 description: Campus-wide collaborations.
 ---
-### Working with faculty
+## Working with faculty
 
 Faculty share a responsibility in ensuring classroom materials are accessible and making information about required learning materials available for review in the CSM Bookstore's dashboard. In addition, academic integrity and developmental concerns may shape instructors' attitudes toward technology in a way that can benefit from information about assistive technology in the context of disability access.
 
