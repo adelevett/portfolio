@@ -306,13 +306,13 @@ One-click access to built-in accessibility and usability features on Windows & M
   // Edge — 2 rows
   table.cell(rowspan: 2, align: horizon + center)[#pdf.artifact(image("assets/edge.svg", width: 2cm))],
   table.cell(rowspan: 2)[Edge],
-  [#indexed_link("https://support.microsoft.com/en-us/topic/use-immersive-reader-in-microsoft-edge-78a7a17d-52e1-47ee-b0ac-eff8539015e1")[Immersive Reader]],
+  [#indexed_link("https://support.microsoft.com/en-us/topic/use-immersive-reader-in-microsoft-edge-78a7a17d-52e1-47ee-b0ac-eff8539015e1")[Reading Mode]],
   [#indexed_link("https://www.microsoft.com/en-us/edge/features/read-aloud")[Read Aloud]],
 
   // Safari — 2 rows
   table.cell(rowspan: 2, align: horizon + center)[#pdf.artifact(image("assets/safari.svg", width: 2cm))],
   table.cell(rowspan: 2)[Safari],
-  [#indexed_link("https://www.callscotland.org.uk/blog/the-brilliant-safari-reader-in-ios-18/")[Show Reader]],
+  [#indexed_link("https://support.apple.com/en-my/guide/safari/sfri32632/mac")[Show Reader]],
   [#indexed_link("https://til.simonwillison.net/ios/listen-to-page")[Listen to page]],
 
   table.hline(),
@@ -355,6 +355,22 @@ spacing: 1.4em,separator: [: ],hanging-indent: 0pt)
   ))
 ]
 
+#slide[
+  = In depth: Chrome Reading Mode
+
+ #set list(marker: [‣])
+  - Color themes
+  - Line Focus
+  - Full page or Side panel view
+  - Optional Links & Images
+  / NOTE: Not available on all pages
+
+
+  #place(top + left, dx: 15cm, dy: 2cm,(pdf.artifact(image("assets/chrome_reading.png", width: 12cm))
+  ))
+  #place(top + left, dx: 3cm, dy: 10cm,(pdf.artifact(image("assets/chrome_raeading_sm.png", width: 8cm))
+  ))
+]
 
 #slide[
   = Open source: Mozilla Firefox
@@ -413,23 +429,23 @@ spacing: 1.4em,separator: [: ],hanging-indent: 0pt)
 )
 ]
 
-#slide[
-= Online document conversion
+// #slide[
+// = Online document conversion
 
-  #grid(columns: (.8fr, 1.2fr), gutter: 1em,
-    pdf.artifact(image("assets/sensus_access.png", height: 75%)),
-    [
-      #set terms(separator: [: ],hanging-indent: 0pt)
- / #indexed_link("https://www.sensusaccess.com/convert-a-file/")[SensusAccess]: Online file conversion, including OCR for image-based PDFs
-      #set list(marker: [‣])
-      - Upload file or enter URL
-      - Select output file format (ePub, Word, PDF, etc)
-      - Receive converted file by email
+//   #grid(columns: (.8fr, 1.2fr), gutter: 1em,
+//     pdf.artifact(image("assets/sensus_access.png", height: 75%)),
+//     [
+//       #set terms(separator: [: ],hanging-indent: 0pt)
+//  / #indexed_link("https://www.sensusaccess.com/convert-a-file/")[SensusAccess]: Online file conversion, including OCR for image-based PDFs
+//       #set list(marker: [‣])
+//       - Upload file or enter URL
+//       - Select output file format (ePub, Word, PDF, etc)
+//       - Receive converted file by email
       
-    ]
-  )
+//     ]
+//   )
 
-]
+// ]
 
 
 // #slide[
@@ -657,7 +673,7 @@ spacing: 1.4em,separator: [: ],hanging-indent: 0pt)
   = Feedback
 
 #align(center)[#pdf.artifact(image("assets/qrcode.png", height: 65%))
-#indexed_link("https://forms.gle/s1Z8zV5f9orbt21S8")[Feedback form & access to slides]]
+#indexed_link("https://forms.gle/gJ5hbmVUEHAWm9eJ9")[Feedback form & access to slides]]
 ]
 
 #slide[
